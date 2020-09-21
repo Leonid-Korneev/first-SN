@@ -1,0 +1,69 @@
+.App {
+
+}
+
+.logo {
+    max-width: 100px;
+    max-height: 100px;
+    width: 100%;
+    height: 100%;
+    margin-left: 15px;
+    
+}
+.nav__link {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 150%;
+    border-bottom: 1px solid black;
+    padding: 15px ;
+    transition: all .1s linear;
+    
+}
+
+.nav__link:hover {
+    color: white;
+    cursor: pointer;
+    background-color: rgba(0, 26, 255, 0.5);
+  
+   
+}
+
+.app-wrapper {
+    display: grid;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    grid-template-areas: 
+    "h h "
+    "n c"
+    
+    ;
+
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 2fr 10fr;
+
+    
+
+}
+
+.header {
+    grid-area: h;
+    background-color: rgba(0, 26, 255, 0.3);
+    border-bottom: 1px solid black;
+
+}
+
+.nav {
+    grid-area: n;
+    background-color: rgba(0, 26, 255, 0.3);
+}
+
+.content {
+    grid-area: c;
+    background-color: rgb(255, 255, 153);
+
+}
+.content__img {
+    width: 100%;
+}
