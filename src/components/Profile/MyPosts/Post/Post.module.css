@@ -11,3 +11,16 @@
   border-radius: 30px;
 }
 
+.like img {
+  width: 40px;
+}
+.like {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
