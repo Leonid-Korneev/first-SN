@@ -2,13 +2,10 @@
 
 .content {
   grid-area: c;
-  background-color: rgb(255, 255, 153);
+  background-color: rgba(0, 26, 255, 0.1);
 
 }
 .content__img {
   width: 100%;
 }
 
-.item {
-  color: green
-}
