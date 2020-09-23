@@ -9,8 +9,10 @@ const MyPosts = () => {
   return (
 
     <div>
-      <textarea></textarea>
-      <button>Add Post</button>
+    <div className={s.PostsBlock}>
+        <textarea></textarea>
+        <button className={s.button}>Add Post</button>
+    </div>
     
     <div className={s.posts}>
     <Post message= 'hi, how are you?'  amountOfLikes="30"  />

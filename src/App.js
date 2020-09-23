@@ -15,18 +15,20 @@ import Music from "./components/Music/Music";
 const App = () => {
     return (
         <BrowserRouter>
-            <div className="app-wrapper">
-                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap"/>
-                <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"/>
-                <Header/>
-                <NavBar/>
-                <div className="app-wrapper__content">
-                    <Route path="/profile" component={Profile}/>
-                    <Route path="/dialogs"component={Dialogs}/>
-                    <Route path="/news" component={News}/>
-                    <Route path="/settings"component={Settings}/>
-                    <Route path="/music"component={Music}/>
-                </div>
+          <div className="app">
+              <div className="app-wrapper">
+                  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap"/>
+                  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"/>
+                  <Header/>
+                  <NavBar/>
+                  <div className="app-wrapper__content">
+                      <Route path="/profile" component={Profile}/>
+                      <Route path="/dialogs"component={Dialogs}/>
+                      <Route path="/news" component={News}/>
+                      <Route path="/settings"component={Settings}/>
+                      <Route path="/music"component={Music}/>
+                  </div>
+          </div>
 
 
 

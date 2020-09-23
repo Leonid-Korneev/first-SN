@@ -7,7 +7,7 @@
 
 .app-wrapper {
     display: grid;
-    max-width: 1200px;
+    max-width: 1400px;
     width: 100%;
     margin: 0 auto;
     grid-template-areas: 
@@ -16,12 +16,12 @@
     
     ;
 
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 50px 1fr;
     grid-template-columns: 2fr 10fr;
 
+}
 
-
-    
-
+.app {
+    background-color: rgba(232, 236, 241, 1);
 }
 

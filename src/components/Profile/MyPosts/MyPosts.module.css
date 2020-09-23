@@ -1,0 +1,13 @@
+
+.PostsBlock {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-gap: 5px;
+
+}
+.button {
+    width: 100px;
+    justify-self: end;
+
+}
