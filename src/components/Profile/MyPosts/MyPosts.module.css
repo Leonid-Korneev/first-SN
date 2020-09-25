@@ -1,5 +1,5 @@
 
-.PostsBlock {
+.postsBlock {
     padding: 10px;
     display: grid;
     grid-template-columns: 2fr;
@@ -10,4 +10,9 @@
     width: 100px;
     justify-self: end;
 
+}
+.title {
+    border-bottom: 1px solid black;
+    font-size: 25px;
+    font-weight: 500;
 }

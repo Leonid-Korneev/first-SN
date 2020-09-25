@@ -10,10 +10,10 @@
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
-    grid-template-areas: 
+    grid-template-areas:
     "h h "
     "n c"
-    
+
     ;
 
     grid-template-rows: 50px 1fr;
@@ -23,5 +23,7 @@
 
 .app {
     background-color: rgba(232, 236, 241, 1);
+    font-family: 'Varela Round', sans-serif;
 }
+
 
