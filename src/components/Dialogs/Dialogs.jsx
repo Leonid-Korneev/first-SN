@@ -5,10 +5,10 @@ import DialogMessage from "./DialogMessage/DialogMessage";
 
 
 const Dialogs = (props) => {
-    debugger;
-    const dialogsElements = props.dialogsData.map(el =>  <DialogItem name={el.name} id={el.id}/>);
-    const messageElements = props.messageData.map(el =>  <DialogMessage message={el.text}/>);
 
+    const dialogsElements = props.state.dialogsData.map(el =>  <DialogItem name={el.name} id={el.id} avatar={el.avatar}/>);
+    const messageElements = props.state.messageData.map(el =>  <DialogMessage message={el.text}/>);
+    debugger;
     return (
 
         <div className={style.content}>

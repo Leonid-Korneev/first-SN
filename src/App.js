@@ -13,6 +13,7 @@ import Music from "./components/Music/Music";
 
 
 const App = (props) => {
+    debugger;
     return (
         <BrowserRouter>
           <div className="app">
@@ -20,10 +21,11 @@ const App = (props) => {
                   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap"/>
                   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"/>
                   <Header/>
-                  <NavBar/>
+                  <NavBar state={props.appState.friends}/>
                   <div className="app-wrapper__content">
-                      <Route path="/profile" render= {()=> <Profile postsData={props.postsData}/>} />
-                      <Route path="/dialogs" render= {()=> <Dialogs dialogsData={props.dialogsData} messageData={props.messageData}/>} />
+
+                      <Route path="/profile" render= {()=> <Profile state={props.appState.profile}/>} />
+                      <Route path="/dialogs" render= {()=> <Dialogs state={props.appState.dialogs} />} />
                       <Route path="/news" render= {()=> <News/>} />
                       <Route path="/settings" render= {()=> <Settings/>} />
                       <Route path="/music" render= {()=> <Music/>}/>
