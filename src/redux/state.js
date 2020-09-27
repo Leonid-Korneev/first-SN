@@ -12,7 +12,8 @@ let appState = {
         postsData: [
             {id: 1, text: "hi, how are you?", likes: 30},
             {id: 2, text: "This is my first post", likes: 43}
-        ]},
+        ],
+        profileInfo: {avatar: "", name:"Vitaly", birthDate:"26.03.1998", city:"Vinnica", education:"8 grade", website:"youtube.com/arthas"}},
     dialogs: {
         dialogsData: [
             {id: 1, name: "Leonid", avatar:"https://whatsism.com/uploads/posts/2018-07/1530546770_rmk_vdjbx10.jpg"},

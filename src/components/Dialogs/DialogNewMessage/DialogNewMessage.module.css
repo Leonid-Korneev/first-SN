@@ -1,0 +1,25 @@
+
+
+.newMessage {
+
+    display: grid;
+    grid-gap: 10px;
+    width: 500px;
+    margin: 0 auto;
+
+
+
+}
+
+
+.newMessage textarea{
+    resize: vertical;
+}
+.addButton {
+    width: 110px;
+    justify-self: end;
+
+
+}
+
+

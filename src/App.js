@@ -13,7 +13,7 @@ import Music from "./components/Music/Music";
 
 
 const App = (props) => {
-    debugger;
+
     return (
         <BrowserRouter>
           <div className="app">
