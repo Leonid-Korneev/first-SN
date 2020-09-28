@@ -6,7 +6,7 @@ import style from "./DialogMessage.module.css";
 
 const DialogMessage = (props) => {
     return (
-        <div className={style.message__item}>{props.message}</div>
+        <div className={style.message__item}>{props.author+" "+props.text }</div>
     )
 }
 

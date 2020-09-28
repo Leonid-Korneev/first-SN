@@ -20,3 +20,13 @@
 
     border-radius: 100%;
 }
+
+.activeDialog img  {
+    width: 150%;
+    height: 150%;
+
+}
+.activeDialog   {
+
+    font-size: 130%;
+}
