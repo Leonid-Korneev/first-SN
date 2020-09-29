@@ -10,14 +10,14 @@ import {Route} from "react-router-dom";
 
 const Dialogs = (props) => {
 
-    const dialogsElements = props.state.dialogsData.map(el => <DialogItem name={el.name} id={el.id} avatar={el.avatar} message={el.text}/>);
+    const dialogsElements = props.store.appState.dialogs.dialogsData.map(el => <DialogItem name={el.name} id={el.id} avatar={el.avatar} message={el.text}/>);
     const dialog = []
 
-    for (let object of props.state.dialogsData) {
-        dialog.push(props.state.dialogsData[object.id-1].messageData.map(el=> <DialogMessage author={el.author} text={el.text}  />   ))
+    for (let object of props.store.appState.dialogs.dialogsData) {
+        dialog.push(props.store.appState.dialogs.dialogsData[object.id-1].messageData.map(el=> <DialogMessage author={el.author} text={el.text}  />   ))
     }
 
-    const dialogsPaths = props.state.dialogsData.map(el=> <Route path={"/dialogs/"+el.id}  render= {()=> <div>{dialog[el.id-1]}</div>} />)
+    const dialogsPaths = props.store.appState.dialogs.dialogsData.map(el=> <Route path={"/dialogs/"+el.id}  render= {()=> <div>{dialog[el.id-1]}</div>} />)
 
     return (
 
@@ -36,7 +36,7 @@ const Dialogs = (props) => {
 
 
             </div>
-            <DialogNewMessage state={props.state} addMessage={props.addMessage} updateNewMessage={props.updateNewMessage} id={props.state.dialogsData.id}/>
+            <DialogNewMessage store={props.store}/>
 
         </div>
     )

@@ -23,11 +23,11 @@ const App = (props) => {
                   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"/>
                   <Header/>
 
-                  <NavBar state={props.appState.friends}/>
+                  <NavBar state={props.store.appState.friends}/>
                   <div className="app-wrapper__content">
 
-                      <Route path="/profile" render= {()=> <Profile state={props.appState.profile} addPost={props.addPost} updateNewText={props.updateNewText} /> } />
-                      <Route path="/dialogs" render= {()=> <Dialogs state={props.appState.dialogs} addMessage={props.addMessage}  updateNewMessage={props.updateNewMessage} />} />
+                      <Route path="/profile" render= {()=> <Profile store = {props.store} /> } />
+                      <Route path="/dialogs" render= {()=> <Dialogs store={props.store} />} />
                       <Route path="/news" render= {()=> <News/>} />
                       <Route path="/settings" render= {()=> <Settings/>} />
                       <Route path="/music" render= {()=> <Music/>}/>
