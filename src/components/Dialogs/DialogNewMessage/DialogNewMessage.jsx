@@ -1,25 +1,26 @@
 import React from "react";
 import style from "./DialogNewMessage.module.css";
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../../redux/state";
 
 
 const DialogNewMessage = (props) => {
-    let messageText = React.createRef();
+
     let addNewMessage = () => {
-        props.dispatch({type: "ADD-MESSAGE"})
+        props.dispatch(addMessageActionCreator())
 
 
     }
-    let updateMessage = () => {
-        let text = messageText.current.value;
+    let updateMessage = (event) => {
+        let text = event.target.value;
 
-        props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newText: text});
+        props.dispatch(updateNewMessageTextActionCreator(text));
     }
 
 
     return (
         <div className={style.newMessage}>
-            <textarea className={style.s} ref={messageText} onChange={updateMessage}
-                      value={props.dialogs.newMessageText} placeholder="New message text"/>
+            <textarea className={style.s}  onChange={updateMessage}
+                      value={props.dialogs.newMessageText} placeholder="Enter your message"/>
             <button className={style.addButton} onClick={addNewMessage}>Send message</button>
 
 

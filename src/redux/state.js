@@ -1,5 +1,7 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_MESSAGE = "ADD-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 
 let store = {
 
@@ -51,7 +53,7 @@ let store = {
                     name: "Leonid",
                     avatar: "https://whatsism.com/uploads/posts/2018-07/1530546770_rmk_vdjbx10.jpg",
                     messageData: [
-                        {author: "author:  ", text: "Hello, how are?"},
+                        {author: "author:",   text: "Hello, how are?"},
 
                     ]
 
@@ -135,8 +137,10 @@ let store = {
             this.rerenderEntireTree(store.getState());
 
         } else if (action.type === "ADD-MESSAGE") {
-            let newMessage = {author: "me", text: this.getState().dialogs.newMessageText};
-            this.getState().dialogs.dialogsData[0].messageData.push(newMessage);
+            let newMessage = {author: "you:", text: this.getState().dialogs.newMessageText};
+            let currentURL = window.location.href;
+            let index=currentURL[currentURL.length-1];
+            this.getState().dialogs.dialogsData[index-1].messageData.push(newMessage);
             this.rerenderEntireTree(this.getState());
             this.getState().dialogs.newMessageText = ""
         }
@@ -149,9 +153,13 @@ let store = {
 }
 
 
-
-export const addPostActionCreator = () => ( {type: ADD_POST} )
+export const addPostActionCreator = () => ({type: ADD_POST})
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
+
+export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
+
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
 
 
 export default store;

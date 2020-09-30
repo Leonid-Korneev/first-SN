@@ -36,7 +36,10 @@ const Dialogs = (props) => {
 
 
             </div>
-            <DialogNewMessage dialogs={props.dialogs} dispatch={props.dispatch}/>
+            {/*/roster/:number*/}
+
+            <Route path={"/dialogs/*"}  render= {()=> <DialogNewMessage dialogs={props.dialogs} dispatch={props.dispatch}/>} />
+
 
         </div>
     )
