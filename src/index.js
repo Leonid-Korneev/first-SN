@@ -11,12 +11,12 @@ export let rerenderEntireTree = () => {
 
     ReactDOM.render(
         <React.StrictMode>
-            <App store={store}/>
+            <App state={store.getState()} dispatch={store.dispatch.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
 };
-rerenderEntireTree(store.appState);
+rerenderEntireTree(store.getState());
 
 store.subcribe(rerenderEntireTree);
 

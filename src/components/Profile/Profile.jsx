@@ -11,8 +11,8 @@ const Profile = (props) => {
 
         <div>
 
-            <ProfileInfo store={props.store.appState.profile}/>
-            <MyPosts store = {props.store}/>
+            <ProfileInfo profile={props.profile}/>
+            <MyPosts profile = {props.profile} dispatch={props.dispatch}/>
         </div>
 
     );
