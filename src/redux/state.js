@@ -1,7 +1,8 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+import dialogsReducer from "./dialogs-reducer";
+import friendsReducer from "./friends-reducer";
+import profileReducer from "./profile-reducer";
+
+
 
 let store = {
 
@@ -53,7 +54,7 @@ let store = {
                     name: "Leonid",
                     avatar: "https://whatsism.com/uploads/posts/2018-07/1530546770_rmk_vdjbx10.jpg",
                     messageData: [
-                        {author: "author:",   text: "Hello, how are?"},
+                        {author: "author:", text: "Hello, how are?"},
 
                     ]
 
@@ -116,34 +117,14 @@ let store = {
 
 
     dispatch(action) {
-        if (action.type === "ADD-POST") {
-            let newPost = {
-                id: this.getState().profile.postsData.length + 1,
-                text: this.getState().profile.newPostText,
-                likes: 0
-            };
-            this.getState().profile.postsData.push(newPost);
-            this.getState().profile.newPostText = "";
 
-            this.rerenderEntireTree();
 
-        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+        this._appState.friends = friendsReducer(this._appState.friends, action);
+        this._appState.dialogs = dialogsReducer(this._appState.dialogs, action);
+        this._appState.profile = profileReducer(this._appState.profile, action);
+        this.rerenderEntireTree();
 
-            this.getState().profile.newPostText = action.newText;
-            this.rerenderEntireTree(store.getState());
 
-        } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
-            this.getState().dialogs.newMessageText = action.newText;
-            this.rerenderEntireTree(store.getState());
-
-        } else if (action.type === "ADD-MESSAGE") {
-            let newMessage = {author: "you:", text: this.getState().dialogs.newMessageText};
-            let currentURL = window.location.href;
-            let index=currentURL[currentURL.length-1];
-            this.getState().dialogs.dialogsData[index-1].messageData.push(newMessage);
-            this.rerenderEntireTree(this.getState());
-            this.getState().dialogs.newMessageText = ""
-        }
     },
 
     rerenderEntireTree() {
@@ -153,13 +134,8 @@ let store = {
 }
 
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
 
-export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
-
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
 
 
 export default store;
