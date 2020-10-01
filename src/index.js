@@ -1,24 +1,27 @@
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-import store from "./redux/state";
+import store from "./redux/redux-store";
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
 
 
-export let rerenderEntireTree = () => {
-
+export let rerenderEntireTree = (state) => {
+debugger
     ReactDOM.render(
         <React.StrictMode>
-            <App state={store.getState()} dispatch={store.dispatch.bind(store)}/>
+            <App state={state} dispatch={store.dispatch.bind(store)}/>
+
         </React.StrictMode>,
         document.getElementById('root')
     );
 };
 rerenderEntireTree(store.getState());
 
-store.subcribe(rerenderEntireTree);
+store.subscribe(()=> {
+    rerenderEntireTree(store.getState())
+});
 
 
 // If you want your app to work offline and load faster, you can change

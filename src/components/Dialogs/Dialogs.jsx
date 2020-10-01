@@ -2,9 +2,10 @@ import React from "react";
 import style from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import DialogMessage from "./DialogMessage/DialogMessage";
-import DialogNewMessage from "./DialogNewMessage/DialogNewMessage";
+
 
 import {Route} from "react-router-dom";
+import DialogNewMessageContainer from "./DialogNewMessage/DialogNewMessageContainer";
 
 
 
@@ -38,7 +39,7 @@ const Dialogs = (props) => {
             </div>
 
 
-            <Route path={"/dialogs/*"}  render= {()=> <DialogNewMessage dialogs={props.dialogs} dispatch={props.dispatch}/>} />
+            <Route path={"/dialogs/*"}  render= {()=> <DialogNewMessageContainer dialogs={props.dialogs} dispatch={props.dispatch}/>} />
 
 
         </div>
