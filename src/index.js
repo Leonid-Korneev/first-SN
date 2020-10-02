@@ -5,23 +5,20 @@ import store from "./redux/redux-store";
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
+import {Provider} from "react-redux";
 
 
-export let rerenderEntireTree = (state) => {
-debugger
+
+
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} dispatch={store.dispatch.bind(store)}/>
-
+            <Provider store={store}>
+                <App/>
+            </Provider>
         </React.StrictMode>,
         document.getElementById('root')
     );
-};
-rerenderEntireTree(store.getState());
 
-store.subscribe(()=> {
-    rerenderEntireTree(store.getState())
-});
 
 
 // If you want your app to work offline and load faster, you can change

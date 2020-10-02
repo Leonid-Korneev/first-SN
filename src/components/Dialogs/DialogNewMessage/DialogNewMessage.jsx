@@ -7,7 +7,7 @@ import style from "./DialogNewMessage.module.css";
 const DialogNewMessage = (props) => {
 
     let addNewMessage = () => {
-       props.addMessageActionCreator();
+       props.addNewMessage()
 
 
     }
@@ -15,7 +15,7 @@ const DialogNewMessage = (props) => {
 
         let text = event.target.value
 
-        props.updateNewMessageTextActionCreator(text);
+        props.updateMEssage(text)
     }
 
 
