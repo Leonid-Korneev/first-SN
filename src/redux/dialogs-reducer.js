@@ -68,25 +68,17 @@ let initialState = {
          case ADD_MESSAGE : {
              let stateCopy = {...state}
              let newMessage = {author: "you:", text: state.newMessageText};
-             let currentURL = window.location.href;
-             let index = currentURL[currentURL.length - 1];
-
-
-
-             stateCopy.dialogsData = [...state.dialogsData]
-
+             let index = window.location.href.slice(-1);
+             stateCopy.dialogsData = [...state.dialogsData,  ]
              stateCopy.dialogsData[index - 1].messageData.push(newMessage);
-
              stateCopy.newMessageText = "";
              return stateCopy
 
          }
 
          case UPDATE_NEW_MESSAGE_TEXT : {
-             let stateCopy = {...state}
+            return  {...state, newMessageText : action.newText}
 
-             stateCopy.newMessageText = action.newText;
-            return stateCopy
          }
          default : {
              return state

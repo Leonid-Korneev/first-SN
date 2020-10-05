@@ -8,7 +8,7 @@ import {Route} from "react-router-dom";
 import DialogNewMessageContainer from "./DialogNewMessage/DialogNewMessageContainer";
 
 const Dialogs = (props) => {
-
+    debugger;
     const dialogsElements = props.dialogs.dialogsData.map(el => <DialogItem name={el.name} id={el.id} avatar={el.avatar}
                                                                             message={el.text}/>);
     const dialog = []
