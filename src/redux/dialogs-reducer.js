@@ -63,31 +63,35 @@ let initialState = {
 };
 
 
- const dialogsReducer = (state=initialState, action) => {
-     switch (action.type) {
-         case ADD_MESSAGE : {
-             let stateCopy = {...state}
-             let newMessage = {author: "you:", text: state.newMessageText};
-             let index = window.location.href.slice(-1);
-             stateCopy.dialogsData = [...state.dialogsData,  ]
-             stateCopy.dialogsData[index - 1].messageData.push(newMessage);
-             stateCopy.newMessageText = "";
-             return stateCopy
-
-         }
-
-         case UPDATE_NEW_MESSAGE_TEXT : {
-            return  {...state, newMessageText : action.newText}
-
-         }
-         default : {
-             return state
-         }
-
-     }
+const dialogsReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case ADD_MESSAGE : {
+            let stateCopy = {...state}
+            let newMessage = {author: "you:", text: state.newMessageText};
+            let index = window.location.href.slice(-1);
 
 
+            stateCopy = {...state, dialogsData: [...state.dialogsData.map(obj => ({...obj}))],}
 
+            for (let i = 0; i < state.dialogsData.length; i++) {
+                stateCopy.dialogsData[i].messageData = [...state.dialogsData[i].messageData]
+            }
+
+            stateCopy.dialogsData[index - 1].messageData.push(newMessage);
+            stateCopy.newMessageText = "";
+            return stateCopy
+
+        }
+
+        case UPDATE_NEW_MESSAGE_TEXT : {
+            return {...state, newMessageText: action.newText}
+
+        }
+        default : {
+            return state
+        }
+
+    }
 
 
 }

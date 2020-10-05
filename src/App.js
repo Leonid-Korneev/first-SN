@@ -7,9 +7,11 @@ import NavBar from './components/NavBar/NavBar';
 import Header from "./components/Header/Header";
 import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/News/News";
+
 import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+
 
 
 const App = () => {
@@ -31,6 +33,7 @@ const App = () => {
                         <Route path="/news" render={() => <News/>}/>
                         <Route path="/settings" render={() => <Settings/>}/>
                         <Route path="/music" render={() => <Music/>}/>
+
                     </div>
                 </div>
 
