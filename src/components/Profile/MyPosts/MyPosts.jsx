@@ -5,7 +5,7 @@ import Post from "./Post/Post";
 
 
 const MyPosts = (props) => {
-        debugger;
+
 
 
         let state = props.profile

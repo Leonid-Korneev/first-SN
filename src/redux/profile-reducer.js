@@ -20,12 +20,11 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
 
-
+debugger
     switch (action.type) {
         case ADD_POST : {
             let stateCopy = {...state }
             let newPost = {
-
                 id: stateCopy.postsData.length + 1,
                 text: stateCopy.newPostText,
                 likes: 0

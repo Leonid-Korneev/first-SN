@@ -22,11 +22,10 @@ const NavBar = () => {
                 <NavLink to="/settings" activeClassName={s.active} className={s.item}>Settings</NavLink>
             </div>
             <div>
+                <NavLink to="/users" activeClassName={s.active} className={s.item}>Users</NavLink>
+            </div>
 
-            </div>
-            <div className={s.friends}>
-                <FriendsContainer />
-            </div>
+            <div className={s.friends}><FriendsContainer/></div>
 
 
         </nav>
