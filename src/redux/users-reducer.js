@@ -13,11 +13,12 @@ const usersReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case TOGGLE_FOLLOW: {
+            debugger
             return {
                 ...state,
                 users: state.users.map((user) => {
                     if (user.id === action.userId) {
-                        return {...user, isFollowed: !user.isFollowed}
+                        return {...user, followed: !user.followed}
                     } else {
                         return user
                     }
