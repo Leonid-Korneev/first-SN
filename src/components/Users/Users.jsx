@@ -4,19 +4,25 @@ import * as axios from "axios";
 import avatar from "./../../assets/images/default-avtar.jpg"
 
 
-let Users = (props) => {
-    axios.get("https://social-network.samuraijs.com/api/1.0/users?page=3")
-        .then((response) => {
-            if (props.usersSearch.users.length === 0) {
-                debugger
-                props.setUsers(response.data.items)
-            }
-        })
+class Users extends React.Component {
 
 
+    constructor(props) {
+
+        super(props)
+
+        axios.get("https://social-network.samuraijs.com/api/1.0/users?page=3").then((response) => {this.props.setUsers(response.data.items)})
+
+    }
+
+
+
+render()
+{
     return (
         <div>
-            {props.usersSearch.users.map((user) => {
+
+            {this.props.usersSearch.users.map((user) => {
                 return (
                     <div className={style.user}>
                         <div className={style.icon}>
@@ -25,7 +31,7 @@ let Users = (props) => {
                                  alt="ProfileImage"/>
 
                             <button className={style.follow_btn} onClick={() => {
-                                props.followToggle(user.id)
+                                this.props.followToggle(user.id)
                             }}>{user.followed ? "Unfollow" : "Follow"}</button>
 
 
@@ -42,9 +48,11 @@ let Users = (props) => {
 
             })}
         </div>
-
-
     )
+
+}
+
+
 }
 
 

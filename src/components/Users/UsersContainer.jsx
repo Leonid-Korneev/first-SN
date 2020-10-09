@@ -5,9 +5,11 @@ import { setUsersAC, toggleFollowAC, } from "../../redux/users-reducer";
 
 
 let mapStateToProps = (state) => {
+    debugger
 
     return ({
         usersSearch: state.usersSearch
+
     })
 }
 
