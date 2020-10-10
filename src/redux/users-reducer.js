@@ -10,7 +10,7 @@ let initialState = {
     users: [],
     currentPage:1,
     totalUsersCount:0,
-    pageSize : 6
+    pageSize : 10
 
 }
 export const toggleFollowAC = (userId) => ({type: TOGGLE_FOLLOW, userId: userId})
