@@ -3,7 +3,7 @@ import React from 'react';
 import s from "./ProfileDescribtion.module.css";
 
 const ProfileDescribtion = (props) => {
-    debugger;
+
     let state = props.profile.profileInfo
 
     return (

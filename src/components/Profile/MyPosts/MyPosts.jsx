@@ -27,7 +27,7 @@ const MyPosts = (props) => {
 
     };
 
-    debugger;
+
     const postDataElements = state.postsData.map((el) => {
         return <Post message={el.text} amountOfLikes={el.likes}/>
     })

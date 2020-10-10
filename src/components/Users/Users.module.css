@@ -4,10 +4,15 @@
     border-radius: 5px;
     margin: 20px;
     padding: 10px;
+    width: 95%;
 }
 .icon {
     display: flex;
     flex-direction: column;
+}
+.users__content {
+    display: grid;
+    justify-items: center;
 }
 
 .avatar {
@@ -17,7 +22,7 @@
 .item {
 
 }
-.follow_btn {
+.follow_btn, .showMore {
     background-color: rgba(0, 26, 255, 0.4);
 
     font-size: 14px;
@@ -48,4 +53,16 @@
 
 .status {
     align-self: end;
+}
+.selected {
+    font-weight: 700;
+}
+
+.showMore:hover {
+    background-color: rgba(0, 26, 255, 0.1);
+    color: black;
+    cursor: pointer;
+}
+.showMore {
+    margin-bottom: 20px;
 }
