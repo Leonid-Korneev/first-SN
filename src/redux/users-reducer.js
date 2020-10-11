@@ -15,13 +15,13 @@ let initialState = {
     isFetching: true
 
 }
-export const toggleFollowAC = (userId) => ({type: TOGGLE_FOLLOW, userId: userId})
-export const setUsersAC = (users) => ({type: SET_USERS, users})
-export const setNewUsersAC = (users) => ({type: SET_NEW_USERS, users})
-export const setPageAC = (currentPage) => ({type:SET_PAGE, currentPage })
-export const setTotalUsersCountAC = (count) => ({type:SET_TOTAL_USERS_COUNT, count })
-export const showMoreUsersAC = (currentPage) => ({type:SHOW_MORE_USERS, currentPage })
-export const toggleIsFetchingAC = (isFetching) => ({type:TOGGLE_IS_FETCHING, isFetching })
+export const toggleFollow = (userId) => ({type: TOGGLE_FOLLOW,  userId})
+export const setUsers = (users) => ({type: SET_USERS, users})
+export const setNewUsers = (users) => ({type: SET_NEW_USERS, users})
+export const setPage = (currentPage) => ({type:SET_PAGE, currentPage })
+export const setTotalUsersCount = (count) => ({type:SET_TOTAL_USERS_COUNT, count })
+export const showMoreUsers = (currentPage) => ({type:SHOW_MORE_USERS, currentPage })
+export const toggleIsFetching = (isFetching) => ({type:TOGGLE_IS_FETCHING, isFetching })
 
 const usersReducer = (state = initialState, action) => {
 

@@ -46,10 +46,10 @@ const Users = (props) => {
 
 
             })}
-            <div className={style.pages}>      {pagesButton} </div>
-            {/*<span><button className={style.showMore} onClick={() => {*/}
-            {/*    props.onShowMoreClicked(props.currentPage + 1)*/}
-            {/*}}>Show more users</button></span>*/}
+            {/*<div className={style.pages}>      {pagesButton} </div>*/}
+            <span><button className={style.showMore} onClick={() => {
+                props.onShowMoreClicked(props.currentPage + 1)
+            }}>Show more users</button></span>
         </div>
     )
 }
