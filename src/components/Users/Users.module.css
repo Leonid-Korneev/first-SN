@@ -66,3 +66,7 @@
 .showMore {
     margin-bottom: 20px;
 }
+.pages{
+    display: flex;
+    flex-wrap: wrap;
+}

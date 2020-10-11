@@ -1,0 +1,9 @@
+.content {
+    display: grid;
+    justify-items: center;
+    margin-top: 20px;
+
+}
+.preloader {
+    width: 5%;
+}

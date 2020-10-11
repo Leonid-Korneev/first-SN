@@ -31,11 +31,12 @@ const App = () => {
                     <div className="app-wrapper__content">
 
                         <Route path="/profile" render={() => <Profile/>}/>
+                        <Route path="/users" render={()=> <UsersContainer/>}/>
                         <Route path="/dialogs" render={() => <DialogsContainer/>}/>
                         <Route path="/news" render={() => <News/>}/>
                         <Route path="/settings" render={() => <Settings/>}/>
                         <Route path="/music" render={() => <Music/>}/>
-                        <Route path="/users" render={()=> <UsersContainer/>}/>
+
 
                     </div>
                 </div>

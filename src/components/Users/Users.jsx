@@ -12,13 +12,13 @@ const Users = (props) => {
     for (let i = 1; i <= pages; i++) {
         pagesButton.push(<span className={(props.currentPage === i) && style.selected} onClick={() => {
             props.onPageChanged(i)
-        }}>{i}</span>)
+        }}>{i}|</span>)
     }
 
 
     return (
         <div className={style.users__content}>
-            {/*{pagesButton}*/}
+
             {props.usersSearch.users.map((user) => {
 
                 return (
@@ -46,9 +46,10 @@ const Users = (props) => {
 
 
             })}
-            <span><button className={style.showMore} onClick={() => {
-                props.onShowMoreClicked(props.currentPage + 1)
-            }}>Show more users</button></span>
+            <div className={style.pages}>      {pagesButton} </div>
+            {/*<span><button className={style.showMore} onClick={() => {*/}
+            {/*    props.onShowMoreClicked(props.currentPage + 1)*/}
+            {/*}}>Show more users</button></span>*/}
         </div>
     )
 }
