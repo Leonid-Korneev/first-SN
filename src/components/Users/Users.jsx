@@ -1,6 +1,8 @@
 import React from "react";
 import style from "./Users.module.css";
 import avatar from "../../assets/images/default-avtar.jpg";
+import {NavLink} from "react-router-dom";
+
 
 const Users = (props) => {
 
@@ -23,11 +25,14 @@ const Users = (props) => {
 
                 return (
                     <div className={style.user}>
-                        <div className={style.icon}>
-                            <img className={style.avatar}
-                                 src={(user.photos.small != null) ? user.photos.small : avatar}
-                                 alt="ProfileImage"/>
 
+                        <div className={style.icon}>
+
+                            <NavLink to={"/profile/" + user.id}>
+                                <img className={style.avatar}
+                                     src={(user.photos.small != null) ? user.photos.small : avatar}
+                                     alt="ProfileImage"/>
+                            </NavLink>
                             <button className={style.follow_btn} onClick={() => {
 
                                 props.followToggle(user.id)
@@ -46,10 +51,10 @@ const Users = (props) => {
 
 
             })}
-            {/*<div className={style.pages}>      {pagesButton} </div>*/}
-            <span><button className={style.showMore} onClick={() => {
-                props.onShowMoreClicked(props.currentPage + 1)
-            }}>Show more users</button></span>
+            <div className={style.pages}>      {pagesButton} </div>
+            {/*<span><button className={style.showMore} onClick={() => {*/}
+            {/*    props.onShowMoreClicked(props.currentPage + 1)*/}
+            {/*}}>Show more users</button></span>*/}
         </div>
     )
 }

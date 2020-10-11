@@ -1,22 +1,36 @@
 import React from 'react';
-
 import s from "./ProfileDescribtion.module.css";
+import avatar from "../../../assets/images/default-avtar.jpg";
+
+
 
 const ProfileDescribtion = (props) => {
 
     let state = props.profile.profileInfo
-
+    let profile = props.profile.profile
     return (
         <div className={s.item}>
+
             <div><img className={s.avatar} alt="avatar"
-                      src="https://svirtus.cdnvideo.ru/RXYqectI4SSltlLXVwigGWuNH3I=/0x0:770x330/1200x1200/filters:quality(100)/https://hb.bizmrg.com/cybersportru-media/95/950154e588a56a266eb1566d4d86f78a.jpg?m=563e4830a89f6ebc00077efd8b08f382"/>
+
+                      src={(profile.photos.large)? profile.photos.large : avatar }/>
             </div>
             <div className={s.info}>
-                <p className={s.name}> Name: {state.name}</p>
+                <p className={s.name}> Name: {profile.fullName}</p>
                 <p className={s.birthDate}> Date Of Birth: {state.birthDate}</p>
                 <p className={s.city}>City:{state.city}</p>
                 <p className={s.education}>Education:{state.education}</p>
-                <p className={s.webSite}>Personal Website:{state.website}</p>
+                <p className={s.education}>Status: {profile.aboutMe}</p>
+                <div>
+                    <h4 className={s.item}>Social Media</h4>
+                    <p className={s.socialMedia_item}>VK: <label className={s.social_url }>{profile.contacts.vk}</label> </p>
+                    <p className={s.socialMedia_item}>twitter: <label className={s.social_url}>{profile.contacts.twitter}</label> </p>
+                    <p className={s.socialMedia_item}>instagram: <label className={s.social_url}>{profile.contacts.instagram}</label> </p>
+                    <p className={s.socialMedia_item}>github: <label className={s.social_url}>{profile.contacts.github}</label> </p>
+                    <p className={s.socialMedia_item}>facebook: <label className={s.social_url}>{profile.contacts.facebook}</label> </p>
+
+                </div>
+
 
 
             </div>
