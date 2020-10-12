@@ -14,7 +14,7 @@ class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId ?? 2}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId ?? 11987}`)
             .then((response) => {
                 this.props.toggleIsFetching(false)
                 this.props.setProfile(response.data)

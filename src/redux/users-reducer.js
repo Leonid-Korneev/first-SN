@@ -11,7 +11,7 @@ let initialState = {
     users: [],
     currentPage:1,
     totalUsersCount:0,
-    pageSize : 3,
+    pageSize : 6,
     isFetching: true
 
 }
@@ -46,7 +46,7 @@ const usersReducer = (state = initialState, action) => {
             return {...state, users: [ ...action.users]}
         }
         case SET_NEW_USERS : {
-            return {...state, users: [ ...state.users,...action.users]}
+            return {...state, users: [ ...action.users]}
         }
         case SET_PAGE: {
             return {...state, currentPage: action.currentPage}

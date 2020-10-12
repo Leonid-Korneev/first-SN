@@ -2,7 +2,6 @@ import React from 'react';
 
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import Header from "./components/Header/Header";
 import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
@@ -10,6 +9,7 @@ import Music from "./components/Music/Music";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 
@@ -22,7 +22,9 @@ const App = () => {
                 <div className="app-wrapper">
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap"/>
                     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"/>
-                    <Header/>
+                    <HeaderContainer/>
+
+
 
                     <NavBar/>
                     <div className="app-wrapper__content">
