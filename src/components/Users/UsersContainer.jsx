@@ -57,9 +57,7 @@ class UsersAPIComponent extends React.Component {
 
         return (
 
-            <>  {this.props.isFetching ? <Preloader/> : null}
-
-
+            <>  {this.props.isFetching ? <Preloader/> :
                 <Users
                     usersSearch={this.props.usersSearch}
                     currentPage={this.props.currentPage}
@@ -76,7 +74,9 @@ class UsersAPIComponent extends React.Component {
                     }}
 
 
-                />
+                />}
+
+
 
             </>
 
