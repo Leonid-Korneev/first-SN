@@ -12,7 +12,8 @@ let initialState = {
     currentPage:1,
     totalUsersCount:0,
     pageSize : 6,
-    isFetching: true
+    isFetching: true,
+
 
 }
 export const toggleFollow = (userId) => ({type: TOGGLE_FOLLOW,  userId})
