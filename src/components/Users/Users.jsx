@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Users.module.css";
 import avatar from "../../assets/images/default-avtar.jpg";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
+import {followUser} from "../../api/api";
 
 
 const Users = (props) => {
@@ -17,25 +17,22 @@ const Users = (props) => {
         }}>{i}|</span>)
     }
 
-    let followButtonClicked = (user) =>{
-        if(user.followed)
-        {axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,{
-            withCredentials: true,
-            headers: {
-                "api-key": "b5f687c3-02cf-4669-a5d3-f37c6f32f810"
-            }
-        }).then((response)=>{ if (response.data.resultCode===0) { props.followToggle(user.id)}
+    let followButtonClicked = (user) => {
+        if (user.followed) {
+            followUser.unfollow.call(this, user.id).then((response) => {
+                if (response.data.resultCode === 0) {
+                    props.followToggle(user.id)
+                }
 
-        })     }
-        else
-        {axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,{},{
-            withCredentials: true,
-            headers: {
-                "api-key": "b5f687c3-02cf-4669-a5d3-f37c6f32f810"
-            }
-        }).then((response)=>{ if (response.data.resultCode===0) { props.followToggle(user.id)}
+            })
+        } else {
+            followUser.follow.call(this, user.id).then((response) => {
+                if (response.data.resultCode === 0) {
+                    props.followToggle(user.id)
+                }
 
-        })     }
+            })
+        }
 
 
     }
@@ -51,10 +48,12 @@ const Users = (props) => {
                         <div className={style.icon}>
                             <NavLink to={"/profile/" + user.id}>
                                 <img className={style.avatar}
-                                     src={(user.photos.small != null) ? user.photos.small : avatar}
+                                     src={ user.photos.small ?? avatar}
                                      alt="ProfileImage"/>
                             </NavLink>
-                            <button className={style.follow_btn} onClick={() => {followButtonClicked(user)}}> {user.followed ? "Unfollow" : "Follow"} </button>
+                            <button className={style.follow_btn} onClick={() => {
+                                followButtonClicked(user)
+                            }}> {user.followed ? "Unfollow" : "Follow"} </button>
 
 
                         </div>

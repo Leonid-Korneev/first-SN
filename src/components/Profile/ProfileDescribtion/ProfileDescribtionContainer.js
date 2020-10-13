@@ -12,6 +12,5 @@ let mapStateToProps = (state) => {
 }
 
 
-const ProfileDescribtionContainer = connect(mapStateToProps)(ProfileDescribtion);
 
-export default ProfileDescribtionContainer;
+export default connect(mapStateToProps)(ProfileDescribtion);

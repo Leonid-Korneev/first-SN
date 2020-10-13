@@ -11,8 +11,9 @@ import {
     toggleFollow, toggleIsFetching,
 } from "../../redux/users-reducer";
 
-import * as axios from "axios";
+
 import Preloader from "../common/Preloader/Preloader";
+import {users} from "../../api/api";
 
 
 class UsersAPIComponent extends React.Component {
@@ -22,12 +23,13 @@ class UsersAPIComponent extends React.Component {
 
         this.props.toggleIsFetching(true)
 
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}`, {withCredentials:true}).then((response) => {
-            this.props.setUsers(response.data.items)
-            this.props.toggleIsFetching(false)
-            this.props.setTotalUsersCount(response.data.totalCount)
+        users.getUsers.call(this)
+            .then((data) => {
+                this.props.setUsers(data.items)
+                this.props.toggleIsFetching(false)
+                this.props.setTotalUsersCount(data.totalCount)
 
-        })
+            })
 
     }
 
@@ -35,7 +37,7 @@ class UsersAPIComponent extends React.Component {
 
         this.props.setPage(pageNumber)
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then((response) => {
+        users.getUsers.call(this, pageNumber).then((response) => {
             this.props.toggleIsFetching(false)
             this.props.setUsers(response.data.items)
 
@@ -46,10 +48,11 @@ class UsersAPIComponent extends React.Component {
 
         this.props.showMoreUsers(currentPage)
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`, { withCredentials:true}).then((response) => {
-            this.props.toggleIsFetching(false)
-            this.props.setNewUsers(response.data.items)
-        })
+        users.getUsers.call(this, currentPage)
+            .then((response) => {
+                this.props.toggleIsFetching(false)
+                this.props.setNewUsers(response.data.items)
+            })
     }
 
     render() {
@@ -75,7 +78,6 @@ class UsersAPIComponent extends React.Component {
 
 
                 />}
-
 
 
             </>
