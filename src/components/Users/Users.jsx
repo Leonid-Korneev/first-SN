@@ -19,16 +19,23 @@ const Users = (props) => {
 
     let followButtonClicked = (user) => {
         if (user.followed) {
+            props.toggleFollowing(true,user.id)
             followUser.unfollow.call(this, user.id).then((response) => {
+
+                props.toggleFollowing(false,user.id)
                 if (response.data.resultCode === 0) {
                     props.followToggle(user.id)
                 }
 
             })
         } else {
+            props.toggleFollowing(true,user.id)
             followUser.follow.call(this, user.id).then((response) => {
+                debugger
+                props.toggleFollowing(false,user.id)
                 if (response.data.resultCode === 0) {
                     props.followToggle(user.id)
+
                 }
 
             })
@@ -43,6 +50,7 @@ const Users = (props) => {
             {props.usersSearch.users.map((user) => {
 
                 return (
+
                     <div className={style.user}>
 
                         <div className={style.icon}>
@@ -51,7 +59,8 @@ const Users = (props) => {
                                      src={ user.photos.small ?? avatar}
                                      alt="ProfileImage"/>
                             </NavLink>
-                            <button className={style.follow_btn} onClick={() => {
+
+                            <button className={style.follow_btn} disabled={props.usersSearch.followingUsers.includes(user.id)} onClick={() => {
                                 followButtonClicked(user)
                             }}> {user.followed ? "Unfollow" : "Follow"} </button>
 

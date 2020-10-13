@@ -22,20 +22,20 @@
 .item {
 
 }
-.follow_btn, .showMore {
-    background-color: rgba(0, 26, 255, 0.4);
+/*.follow_btn, .showMore {*/
+/*    background-color: rgba(0, 26, 255, 0.4);*/
 
-    font-size: 14px;
-    color: white;
-    border: 1px solid  rgba(0, 26, 255, 0.4);
-    padding: 5px;
-    margin: 5px 0
-}
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border: 1px solid  rgba(0, 26, 255, 0.4);*/
+/*    padding: 5px;*/
+/*    margin: 5px 0*/
+/*}*/
 
-.follow_btn:hover{
-    border: 1px solid black;
+/*.follow_btn:hover{*/
+/*    border: 1px solid black;*/
 
-}
+/*}*/
 
 .content {
     margin: 0 20px;

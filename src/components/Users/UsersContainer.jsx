@@ -8,7 +8,7 @@ import {
     setTotalUsersCount,
     setUsers,
     showMoreUsers,
-    toggleFollow, toggleIsFetching,
+    toggleFollow, toggleFollowing, toggleIsFetching,
 } from "../../redux/users-reducer";
 
 
@@ -66,6 +66,7 @@ class UsersAPIComponent extends React.Component {
                     currentPage={this.props.currentPage}
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
+                    isFollowingInProgress = {this.props.isFollowingInProgress}
                     onShowMoreClicked={(currentPage) => {
                         this.onShowMoreClicked(currentPage)
                     }}
@@ -75,6 +76,7 @@ class UsersAPIComponent extends React.Component {
                     followToggle={(userId) => {
                         this.props.toggleFollow(userId)
                     }}
+                    toggleFollowing = {(isFollowingInProgress,userId)=>{ this.props.toggleFollowing(isFollowingInProgress,userId)}}
 
 
                 />}
@@ -97,7 +99,8 @@ let mapStateToProps = (state) => {
         currentPage: state.usersSearch.currentPage,
         totalUsersCount: state.usersSearch.totalUsersCount,
         pageSize: state.usersSearch.pageSize,
-        isFetching: state.usersSearch.isFetching
+        isFetching: state.usersSearch.isFetching,
+        isFollowingInProgress: state.usersSearch.isFollowingInProgress
     })
 }
 
@@ -110,7 +113,7 @@ let mapDispatchToProps = {
     showMoreUsers,
     setNewUsers,
     toggleIsFetching,
-
+    toggleFollowing
 
 }
 
