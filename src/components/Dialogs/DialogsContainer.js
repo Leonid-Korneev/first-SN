@@ -1,6 +1,7 @@
 
 import {connect} from "react-redux";
 import Dialogs from "./Dialogs";
+import {withRouter} from "react-router-dom";
 
 let mapStateToProps = (state) => {
     return {
@@ -8,5 +9,5 @@ let mapStateToProps = (state) => {
     }
 }
 
-let DialogsContainer = connect(mapStateToProps)(Dialogs)
+let DialogsContainer = connect(mapStateToProps)(withRouter (Dialogs))
 export default DialogsContainer

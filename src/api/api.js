@@ -8,7 +8,7 @@ const instance = axios.create({
 
 
 
-export const  users = {
+export const  usersApiRequster = {
     getUsers(page)  {   if(!arguments.length){return instance.get(`/users?count=${this.props.pageSize}`).then ((response)=>response.data)}
     else {return instance.get(`/users?page=${page}&count=${this.props.pageSize}`)}},
 
@@ -26,4 +26,16 @@ export const followUser = {
 
 
 
+}
+
+export const authRequest = {
+    authCheck() {
+        return  instance.get("/auth/me").then((response)=>response.data)
+    }
+}
+
+export const profileAPI = {
+    getProfile(userId){
+        return  instance.get(`/profile/${userId ?? 11987}`)
+    }
 }

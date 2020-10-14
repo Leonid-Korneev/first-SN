@@ -3,17 +3,16 @@ import React from "react";
 import Users from "./Users";
 
 import {
-    setNewUsers,
+    follow,
+    getDefaultUsers, getNewUsers,
     setPage,
-    setTotalUsersCount,
-    setUsers,
     showMoreUsers,
-    toggleFollow, toggleFollowing, toggleIsFetching,
+    toggleFollow, toggleFollowing
 } from "../../redux/users-reducer";
 
 
 import Preloader from "../common/Preloader/Preloader";
-import {users} from "../../api/api";
+
 
 
 class UsersAPIComponent extends React.Component {
@@ -21,38 +20,22 @@ class UsersAPIComponent extends React.Component {
 
     componentDidMount() {
 
-        this.props.toggleIsFetching(true)
 
-        users.getUsers.call(this)
-            .then((data) => {
-                this.props.setUsers(data.items)
-                this.props.toggleIsFetching(false)
-                this.props.setTotalUsersCount(data.totalCount)
+        this.props.getDefaultUsers(this)
 
-            })
 
     }
 
     onPageChanged(pageNumber) {
+        this.props.getNewUsers(this, pageNumber)
 
-        this.props.setPage(pageNumber)
-        this.props.toggleIsFetching(true)
-        users.getUsers.call(this, pageNumber).then((response) => {
-            this.props.toggleIsFetching(false)
-            this.props.setUsers(response.data.items)
-
-        })
     }
 
     onShowMoreClicked(currentPage) {
 
-        this.props.showMoreUsers(currentPage)
-        this.props.toggleIsFetching(true)
-        users.getUsers.call(this, currentPage)
-            .then((response) => {
-                this.props.toggleIsFetching(false)
-                this.props.setNewUsers(response.data.items)
-            })
+        this.props.getNewUsers(this, currentPage)
+
+
     }
 
     render() {
@@ -66,17 +49,15 @@ class UsersAPIComponent extends React.Component {
                     currentPage={this.props.currentPage}
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
-                    isFollowingInProgress = {this.props.isFollowingInProgress}
+                    isFollowingInProgress={this.props.isFollowingInProgress}
                     onShowMoreClicked={(currentPage) => {
                         this.onShowMoreClicked(currentPage)
                     }}
                     onPageChanged={(pageNumber) => {
                         this.onPageChanged(pageNumber)
                     }}
-                    followToggle={(userId) => {
-                        this.props.toggleFollow(userId)
-                    }}
-                    toggleFollowing = {(isFollowingInProgress,userId)=>{ this.props.toggleFollowing(isFollowingInProgress,userId)}}
+                    follow = {this.props.follow}
+
 
 
                 />}
@@ -108,12 +89,11 @@ let mapDispatchToProps = {
 
     toggleFollow,
     setPage,
-    setUsers,
-    setTotalUsersCount,
     showMoreUsers,
-    setNewUsers,
-    toggleIsFetching,
-    toggleFollowing
+    toggleFollowing,
+    getDefaultUsers,
+    getNewUsers,
+    follow
 
 }
 

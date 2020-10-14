@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Users.module.css";
 import avatar from "../../assets/images/default-avtar.jpg";
 import {NavLink} from "react-router-dom";
-import {followUser} from "../../api/api";
+
 
 
 const Users = (props) => {
@@ -18,30 +18,7 @@ const Users = (props) => {
     }
 
     let followButtonClicked = (user) => {
-        if (user.followed) {
-            props.toggleFollowing(true,user.id)
-            followUser.unfollow.call(this, user.id).then((response) => {
-
-                props.toggleFollowing(false,user.id)
-                if (response.data.resultCode === 0) {
-                    props.followToggle(user.id)
-                }
-
-            })
-        } else {
-            props.toggleFollowing(true,user.id)
-            followUser.follow.call(this, user.id).then((response) => {
-                debugger
-                props.toggleFollowing(false,user.id)
-                if (response.data.resultCode === 0) {
-                    props.followToggle(user.id)
-
-                }
-
-            })
-        }
-
-
+        props.follow(user.id,user.followed)
     }
 
     return (
