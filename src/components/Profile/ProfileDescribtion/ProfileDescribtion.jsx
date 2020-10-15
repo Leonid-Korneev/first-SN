@@ -2,6 +2,7 @@ import React from 'react';
 import s from "./ProfileDescribtion.module.css";
 import avatar from "../../../assets/images/default-avtar.jpg";
 import Preloader from "../../common/Preloader/Preloader";
+import Status from "../ProfileInfo/Status";
 
 
 const ProfileDescribtion = (props) => {
@@ -25,7 +26,7 @@ const ProfileDescribtion = (props) => {
                     <p className={s.birthDate}> Date Of Birth: {state.birthDate}</p>
                     <p className={s.city}>City:{state.city}</p>
                     <p className={s.education}>Education:{state.education}</p>
-                    <p className={s.education}>Status: {profile.aboutMe}</p>
+                    <div className={s.education}>Status:  <Status status={profile.aboutMe}/></div>
                     <div>
                         <h4 className={s.item}>Social Media</h4>
                         <p className={s.socialMedia_item}>VK: <label

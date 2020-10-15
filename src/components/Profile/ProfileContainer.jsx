@@ -4,8 +4,9 @@ import React from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {getProfile} from "../../redux/profile-reducer";
-import {withRouter} from "react-router-dom";
+import { withRouter} from "react-router-dom";
 
+import {compose} from "redux";
 
 
 class ProfileContainer extends React.Component {
@@ -17,24 +18,24 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
-        return (<div>
-            <Profile profile={this.props.profile} isFetching={this.props.isFetching}/>
-        </div>)
+        return (
+            <Profile profile={this.props.profile} isFetching={this.props.isFetching}/>)
 
 
     }
 }
+
+
 
 let mapStateToProps = (state) => {
     return ({profile: {...state.profile}, isFetching: state.usersSearch.isFetching})
 }
 
 let mapDispatchToProps = {
-
     getProfile
-
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfileContainer));
+export default compose(connect(mapStateToProps, mapDispatchToProps), withRouter )(ProfileContainer)
+// withAuthRedirect
 
 
