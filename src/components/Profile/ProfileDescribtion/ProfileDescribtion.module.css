@@ -2,8 +2,6 @@
 .item {
     display: flex;
     padding: 10px;
-
-
     max-width: 500px;
 
 }
@@ -18,4 +16,11 @@
 }
 .social_url {
     font-weight: 400;
+}
+
+.soc_item {
+    color: #6172f9;
+}
+.title {
+    font-weight: 700;
 }

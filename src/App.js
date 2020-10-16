@@ -8,15 +8,17 @@ import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
+
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Profile from "./components/Profile/Profile";
+
 
 
 
 const App = () => {
 
-
     return (
+
         <BrowserRouter>
             <div className="app">
                 <div className="app-wrapper">
@@ -28,7 +30,7 @@ const App = () => {
 
                     <NavBar/>
                     <div className="app-wrapper__content">
-                        <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
+                        <Route path="/profile/:userId?" render={() => <Profile/>}/>
                         <Route path="/users" render={()=> <UsersContainer/>}/>
                         <Route path="/dialogs/:userId?" render={() => <DialogsContainer/>}/>
                         <Route path="/news" render={() => <News/>}/>

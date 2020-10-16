@@ -3,6 +3,7 @@ import React from "react";
 
 
 class Status extends React.Component {
+
     state = {
         editMode: false,
         status: this.props.status
@@ -24,16 +25,19 @@ class Status extends React.Component {
         )
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+
+    }
 
     render() {
-        console.log("render")
-        return <div >
 
-            {(!this.state.editMode) ? <span onDoubleClick={this.enableEditMode}>{this.state.status || 'No status yet.'}</span> :
+        return <>
+
+            {(!this.state.editMode) ? <span onDoubleClick={this.enableEditMode}>{this.props.status || 'No status yet.'}</span> :
                 <input autoFocus={true} onBlur={this.disableEditMode} onChange={this.onStatusUpdate} defaultValue={this.state.status }/>}
 
 
-        </div>
+        </>
 
 
     }

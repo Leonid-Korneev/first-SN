@@ -3,12 +3,10 @@ import React from 'react';
 import s from "./ProfileInfoe.module.css"
 
 import ProfileDescribtionContainer from "../ProfileDescribtion/ProfileDescribtionContainer";
-import Preloader from "../../common/Preloader/Preloader";
 
-const ProfileInfo = (props) => {
-    if (!props.profile.profile) {
-        return <Preloader/>
-    }
+
+const ProfileInfo = () => {
+
 
     return (
 

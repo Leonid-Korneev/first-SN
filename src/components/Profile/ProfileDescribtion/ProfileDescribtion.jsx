@@ -7,13 +7,15 @@ import Status from "../ProfileInfo/Status";
 
 const ProfileDescribtion = (props) => {
 
-    let state = props.profile.profileInfo
+
+
     let profile = props.profile.profile
+    let socialMediaArr = !props.profile.profile ? [] : Object.entries(props.profile.profile.contacts)
 
     return (
 
 
-        <>  {props.isFetching ? <Preloader/> :
+        <>  {!props.profile.profile ? <Preloader/> :
             <div className={s.item}>
 
 
@@ -23,22 +25,21 @@ const ProfileDescribtion = (props) => {
                 </div>
                 <div className={s.info}>
                     <p className={s.name}> Name: {profile.fullName}</p>
-                    <p className={s.birthDate}> Date Of Birth: {state.birthDate}</p>
-                    <p className={s.city}>City:{state.city}</p>
-                    <p className={s.education}>Education:{state.education}</p>
-                    <div className={s.education}>Status:  <Status {...props}/></div>
+
+
+                    <p className={s.education}><span className={s.title}>Status:</span> <Status {...props}/></p>
                     <div>
-                        <h4 className={s.item}>Social Media</h4>
-                        <p className={s.socialMedia_item}>VK: <label
-                            className={s.social_url}>{profile.contacts.vk}</label></p>
-                        <p className={s.socialMedia_item}>twitter: <label
-                            className={s.social_url}>{profile.contacts.twitter}</label></p>
-                        <p className={s.socialMedia_item}>instagram: <label
-                            className={s.social_url}>{profile.contacts.instagram}</label></p>
-                        <p className={s.socialMedia_item}>github: <label
-                            className={s.social_url}>{profile.contacts.github}</label></p>
-                        <p className={s.socialMedia_item}>facebook: <label
-                            className={s.social_url}>{profile.contacts.facebook}</label></p>
+                        {profile.lookingForAJob ? <div className={s.item}><span className={s.title}>Информация по трудоустройству:</span> {profile.lookingForAJobDescription}</div>: ""}
+
+
+                        {   <h4 className={s.item}>Social Media :</h4> }
+                        {socialMediaArr.map((el)=> {
+                            if(el[1]) {
+                            return <div>
+                                <p> <span className={s.title}>{el[0]}:</span> <span className={s.soc_item}>{el[1]}</span></p>
+                            </div>}
+
+                        }) }
 
                     </div>
 

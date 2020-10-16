@@ -19,30 +19,20 @@ class UsersAPIComponent extends React.Component {
 
 
     componentDidMount() {
-
-
         this.props.getDefaultUsers(this)
-
-
     }
 
     onPageChanged(pageNumber) {
         this.props.getNewUsers(this, pageNumber)
-
     }
 
     onShowMoreClicked(currentPage) {
-
         this.props.getNewUsers(this, currentPage)
-
-
     }
 
     render() {
 
-
         return (
-
             <>  {this.props.isFetching ? <Preloader/> :
                 <Users
                     usersSearch={this.props.usersSearch}
@@ -50,19 +40,10 @@ class UsersAPIComponent extends React.Component {
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
                     isFollowingInProgress={this.props.isFollowingInProgress}
-                    onShowMoreClicked={(currentPage) => {
-                        this.onShowMoreClicked(currentPage)
-                    }}
-                    onPageChanged={(pageNumber) => {
-                        this.onPageChanged(pageNumber)
-                    }}
+                    onShowMoreClicked={(currentPage) => {this.onShowMoreClicked(currentPage)}}
+                    onPageChanged={(pageNumber) => {this.onPageChanged(pageNumber)}}
                     follow = {this.props.follow}
-
-
-
                 />}
-
-
             </>
 
         )

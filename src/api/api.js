@@ -1,5 +1,6 @@
 import * as axios from "axios";
 
+
 const instance = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0",
     withCredentials: true,
@@ -18,6 +19,8 @@ export const usersApiRequster = {
 
 
 }
+
+
 
 export const followUser = {
     follow(userId) {
@@ -41,6 +44,7 @@ export const profileAPI = {
     getProfile(userId) {
         return instance.get(`/profile/${userId ?? 11987}`)
     },
+
 
     updateUserStatus(newStatus) {
         return instance.put(`/profile/status/`, {
