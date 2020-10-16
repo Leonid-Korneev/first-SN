@@ -26,7 +26,7 @@ const ProfileDescribtion = (props) => {
                     <p className={s.birthDate}> Date Of Birth: {state.birthDate}</p>
                     <p className={s.city}>City:{state.city}</p>
                     <p className={s.education}>Education:{state.education}</p>
-                    <div className={s.education}>Status:  <Status status={profile.aboutMe}/></div>
+                    <div className={s.education}>Status:  <Status {...props}/></div>
                     <div>
                         <h4 className={s.item}>Social Media</h4>
                         <p className={s.socialMedia_item}>VK: <label
