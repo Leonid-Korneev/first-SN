@@ -1,42 +1,40 @@
 import React from "react";
-import { Form, Field } from 'react-final-form'
+import {Form, Field} from 'react-final-form'
 import s from "./Login.module.css"
-
-let LoginForm = (props) => {
-
-    return (
-        <div className={s.zalupa}>
-
-            <form className={s.form}  onSubmit={props.handleSubmit}>
-
-                    <div className={s.form_item}><Field name="email" component="input" type="email" placeholder="email"/></div>
-                    <div className={s.form_item}><Field name="password" component="input" type="password" placeholder="password"/></div>
-                    <div className={s.form_item}>
-                        <Field name="remember-me" component="input" type="checkbox" placeholder="password"/>
-                        <label>Remember me</label>
-                    </div>
-                    <div className={s.form_item}>
-                        <button type="submit">Log-In</button>
-                    </div>
+import {connect} from "react-redux";
+import {logIn} from "../../redux/auth-reducer";
 
 
-            </form>
 
-        </div>
-
-    )
-}
-let LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
-
-
-export const Login = () => {
+export let LoginForm = (props) => {
     let onSubmit = (data) => {
-        console.log(data)
-    }
-    return (
-        <div>
+        props.logIn(data)
 
-            <LoginReduxForm onSubmit={onSubmit}/>
-        </div>
+    }
+
+    return (
+        <Form onSubmit={onSubmit}>
+            {props => (
+               <div className={s.form__container}>
+                   <form className={s.form} onSubmit={props.handleSubmit}>
+                       <div className={s.form__item}><Field name="email" component="input" type="text" placeholder="email"/></div>
+                       <div className={s.form__item}><Field name="password" component="input" type="password" placeholder="password"/></div>
+                       <div className={s.form__item}><Field name="remember-me" component="input" type="checkbox" placeholder="password"/><label>Remember me</label></div>
+                       <div className={s.form__item__button}><button type="submit">Log-In</button></div>
+                   </form>
+               </div>
+            )}
+        </Form>
     )
 }
+
+
+
+let mapStateToProps = ()=> {
+    return {}
+}
+let mapDispatchToProps = {
+    logIn
+}
+
+LoginForm= connect(mapStateToProps,mapDispatchToProps)(LoginForm)

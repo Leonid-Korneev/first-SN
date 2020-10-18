@@ -37,6 +37,12 @@ export const followUser = {
 export const authRequest = {
     authCheck() {
         return instance.get("/auth/me").then((response) => response.data)
+    },
+    authLogIn(formData) {
+        return instance.post("/auth/login", {
+            email: formData.email ,
+            password: formData.password
+        })
     }
 }
 

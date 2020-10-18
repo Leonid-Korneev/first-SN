@@ -29,6 +29,11 @@ const authReducer = (state = initialState, action) => {
 }
 
 
+export const logIn = (formData)=> (dispatch)=>{
+
+    authRequest.authLogIn(formData)
+}
+
 export const setUserData = (data) => ({type: SET_USER_DATA, data})
 export const authCheck = () => (dispatch) => {
     authRequest.authCheck().then((data)=> {

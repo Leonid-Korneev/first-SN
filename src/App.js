@@ -37,7 +37,7 @@ const App = () => {
                         <Route path="/news" render={() => <News/>}/>
                         <Route path="/settings" render={() => <Settings/>}/>
                         <Route path="/music" render={() => <Music/>}/>
-                        <Route path="/login" render={() => <Login/>}/>
+                        <Route path="/login" render={() => <LoginForm/>}/>
 
 
                     </div>
