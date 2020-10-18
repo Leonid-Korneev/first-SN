@@ -11,6 +11,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Profile from "./components/Profile/Profile";
+import {Login, LoginForm} from "./components/Login/Login";
 
 
 
@@ -36,6 +37,7 @@ const App = () => {
                         <Route path="/news" render={() => <News/>}/>
                         <Route path="/settings" render={() => <Settings/>}/>
                         <Route path="/music" render={() => <Music/>}/>
+                        <Route path="/login" render={() => <Login/>}/>
 
 
                     </div>

@@ -1,0 +1,22 @@
+.form {
+ display: flex;
+    flex-direction: column;
+    align-content: end;
+
+
+
+
+
+}
+.form_item {
+    margin: 10px;
+
+
+
+}
+.zalupa {
+    margin-top: 50px;
+    display: grid;
+    justify-content: center;
+
+}
