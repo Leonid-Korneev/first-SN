@@ -26,5 +26,11 @@
 
 }
 
+.newMessage__container {
+    display: none;
 
-
+}
+.textarea {
+    width: 100%;
+    resize: none;
+}

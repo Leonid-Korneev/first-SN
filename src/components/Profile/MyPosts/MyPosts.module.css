@@ -5,9 +5,10 @@
     grid-template-columns: 2fr;
     grid-gap: 5px;
 
+
 }
 .button {
-    width: 100px;
+
     justify-self: end;
 
 }
@@ -15,4 +16,19 @@
     border-bottom: 1px solid black;
     font-size: 25px;
     font-weight: 500;
+}
+.textarea {
+    width: 100%;
+    resize: none;
+
+}
+.form {
+  display: grid;
+
+ width: 70%;
+}
+.submit_button {
+    margin-top: 10px;
+    width: 90px;
+    justify-self: end;
 }

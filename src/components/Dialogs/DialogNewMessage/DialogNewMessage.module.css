@@ -15,11 +15,11 @@
 .newMessage textarea{
     resize: vertical;
 }
-.addButton {
-    width: 110px;
-    justify-self: end;
 
+.send_btn {
 
+    justify-content: end;
 }
+
 
 

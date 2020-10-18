@@ -1,31 +1,18 @@
 import React from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
-
+import {Field, Form} from "react-final-form";
 
 
 const MyPosts = (props) => {
 
 
-
-        let state = props.profile
-
-    let onAddPost = () => {
-
-
-        props.onAddPost()
+    let state = props.profile
+    const onSubmit = (formData) => {
+        props.addPost(formData.newPostText)
 
 
-    };
-
-
-    let onPostChange = (event) => {
-
-
-        let text = event.target.value;
-        props.onPostChange(text)
-
-    };
+    }
 
 
     const postDataElements = state.postsData.map((el) => {
@@ -34,8 +21,31 @@ const MyPosts = (props) => {
     return (
         <div>
             <div className={s.postsBlock}>
-                <textarea onChange={onPostChange} placeholder="Enter new post" value={state.newPostText}/>
-                <button onClick={onAddPost} className={s.button}>Add Post</button>
+
+
+                <Form
+                    onSubmit={onSubmit}
+
+                    render={({handleSubmit, form}) => (
+                        <form className={s.form} onSubmit={(event) => {
+                            let p = new Promise((resolve) => {
+                                handleSubmit(event)
+                                resolve()
+                            })
+                            p.then(() => {
+                                form.reset()
+                            })
+                        }}>
+                            <Field className={s.textarea} name="newPostText" component="textarea" type="text"
+                                   placeholder="Enter new post..."/>
+
+                                <button className={s.submit_button} type="submit">Add Post</button>
+
+                        </form>
+                    )}
+                />
+
+
                 <div className={s.title}> My posts</div>
             </div>
             <div className={s.posts}>
