@@ -1,8 +1,9 @@
 import React from 'react';
 import s from "./Header.module.css"
 import {NavLink} from "react-router-dom";
-const Header = (props) => {
 
+const Header = (props) => {
+        debugger
 
     return (
 
@@ -10,7 +11,7 @@ const Header = (props) => {
 
             <img className={s.header__logo} alt="" src="/img/logo.png"/>
 
-            {props.auth.isAuth ?  <div className={s.loggedIn_block} >{props.auth.login} </div> :  <div className={s.logIn_link_block} ><NavLink className={s.logIn_link} to={"/login"}>Log In</NavLink></div>}
+            {props.auth.isAuth ?  <div className={s.loggedIn_block}>{props.auth.login} <button onClick={props.logOut}>Log out</button> </div> :  <div className={s.logIn_link_block} ><NavLink className={s.logIn_link} to={"/login"}>Log In</NavLink></div>}
 
         </div>
 

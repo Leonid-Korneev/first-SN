@@ -2,6 +2,7 @@ import React from "react";
 import style from "./DialogNewMessage.module.css";
 import {Field, Form} from "react-final-form";
 import s from "../../Profile/MyPosts/MyPosts.module.css";
+import {required} from "../../../utils/validators/validators";
 
 
 const DialogNewMessage = (props) => {
@@ -29,7 +30,7 @@ const DialogNewMessage = (props) => {
                             }
                         }>
                            <div className={s.newMessage__container}>
-                               <Field className={s.textarea} name={"messageText"} component={"textarea"} placeholder={"Enter new message..."}/>
+                               <Field className={s.textarea} name={"messageText"} component={"textarea"} validate={required} placeholder={"Enter new message..."}/>
                                <button className={style.send_btn} type={"submit"}>Send Message</button>
                            </div>
                         </form>)}}/>

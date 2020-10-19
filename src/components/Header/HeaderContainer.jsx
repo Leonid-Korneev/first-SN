@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from "./Header";
 import {connect} from "react-redux";
-import {authCheck, } from "../../redux/auth-reducer";
+import {authCheck, logOut,} from "../../redux/auth-reducer";
 
 
 class HeaderContainer  extends React.Component {
@@ -28,6 +28,7 @@ const mapStateToProps = (state)=> {
 const mapDispatchToProps = {
 
     authCheck,
+    logOut
 }
 
 

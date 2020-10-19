@@ -41,9 +41,15 @@ export const authRequest = {
     authLogIn(formData) {
         return instance.post("/auth/login", {
             email: formData.email ,
-            password: formData.password
+            password: formData.password,
+
         })
+    },
+
+    authLogOut(){
+        return instance.delete("/auth/login")
     }
+
 }
 
 export const profileAPI = {

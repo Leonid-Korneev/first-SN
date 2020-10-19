@@ -3,28 +3,30 @@ import {Form, Field} from 'react-final-form'
 import s from "./Login.module.css"
 import {connect} from "react-redux";
 import {logIn} from "../../redux/auth-reducer";
+import {customFormElement} from "../common/FormControls/FromControls";
+import {required} from "../../utils/validators/validators";
+import {Redirect} from "react-router-dom";
 
 
 
 export let LoginForm = (props) => {
-    let onSubmit = (data) => {
-        props.logIn(data)
+    let onSubmit = (formData,form) => {
+        props.logIn(formData)
+        setTimeout(form.restart)
+
 
 
     }
+    if(props.isAuth) {return <Redirect to={"/profile"}/>}
+    return  (
 
-    return (
-        <Form onSubmit={onSubmit} render={
-            ({handleSubmit, form})=> {
+
+        <Form onSubmit={onSubmit}  render={
+            ({handleSubmit})=> {
                 return (
                     <div className={s.form__container}>
-                        <form className={s.form} onSubmit={(e)=> {
-                            let p = new Promise((resolve)=> {
-                                handleSubmit(e)
-                                    resolve()})
-                            p.then(()=>{form.reset()})
-                        }}>
-                            <div className={s.form__item}><Field name="email" component="input" type="text" placeholder="email"/></div>
+                        <form className={s.form} onSubmit={handleSubmit}>
+                            <div className={s.form__item}><Field name="email" component={customFormElement} validate={required} fieldType="input" type="text" placeholder="email"/></div>
                             <div className={s.form__item}><Field name="password" component="input" type="password" placeholder="password"/></div>
                             <div className={s.form__item}><Field name="remember-me" component="input" type="checkbox" placeholder="password"/><label>Remember me</label></div>
                             <div className={s.form__item__button}><button type="submit">Log-In</button></div>
@@ -40,11 +42,14 @@ export let LoginForm = (props) => {
 
 
 
-let mapStateToProps = ()=> {
-    return {}
+let mapStateToProps = (state)=> {
+    return {
+        isAuth: state.auth.isAuth
+    }
 }
 let mapDispatchToProps = {
-    logIn
+    logIn,
+
 }
 
 LoginForm= connect(mapStateToProps,mapDispatchToProps)(LoginForm)
