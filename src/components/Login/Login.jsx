@@ -11,8 +11,10 @@ import {Redirect} from "react-router-dom";
 
 export let LoginForm = (props) => {
     let onSubmit = (formData,form) => {
+        debugger
         props.logIn(formData)
         setTimeout(form.restart)
+
 
 
 
@@ -23,12 +25,16 @@ export let LoginForm = (props) => {
 
         <Form onSubmit={onSubmit}  render={
             ({handleSubmit})=> {
+
                 return (
                     <div className={s.form__container}>
+
+                        {  props.successfulLog===false  ?  <div className={s.form__error}>{props.errorMessages}</div> : undefined}
                         <form className={s.form} onSubmit={handleSubmit}>
+
                             <div className={s.form__item}><Field name="email" component={customFormElement} validate={required} fieldType="input" type="text" placeholder="email"/></div>
-                            <div className={s.form__item}><Field name="password" component="input" type="password" placeholder="password"/></div>
-                            <div className={s.form__item}><Field name="remember-me" component="input" type="checkbox" placeholder="password"/><label>Remember me</label></div>
+                            <div className={s.form__item}><Field name="password" component={customFormElement} validate={required} type="password" fieldType="input" placeholder="password"/></div>
+                            <div className={s.form__item}><Field name="remember-me" component="input" type="checkbox" placeholder="password" defaultValue="true"/><label>Remember me</label></div>
                             <div className={s.form__item__button}><button type="submit">Log-In</button></div>
                         </form>
                     </div>
@@ -44,7 +50,9 @@ export let LoginForm = (props) => {
 
 let mapStateToProps = (state)=> {
     return {
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        successfulLog: state.auth.successfulLog,
+        errorMessages : state.auth.errorMessages
     }
 }
 let mapDispatchToProps = {

@@ -39,9 +39,12 @@ export const authRequest = {
         return instance.get("/auth/me").then((response) => response.data)
     },
     authLogIn(formData) {
+
         return instance.post("/auth/login", {
+
             email: formData.email ,
             password: formData.password,
+            rememberMe : formData.rememberMe
 
         })
     },
@@ -54,7 +57,7 @@ export const authRequest = {
 
 export const profileAPI = {
     getProfile(userId) {
-        return instance.get(`/profile/${userId ?? 11987}`)
+        return instance.get(`/profile/${userId}`)
     },
 
 
@@ -66,6 +69,6 @@ export const profileAPI = {
 
     getUserStatus(userId) {
 
-        return instance.get(`/profile/status/${userId ?? 11987}`)
+        return instance.get(`/profile/status/${userId}`)
     }
 }

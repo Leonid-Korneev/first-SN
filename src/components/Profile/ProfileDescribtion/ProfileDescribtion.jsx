@@ -36,7 +36,7 @@ const ProfileDescribtion = (props) => {
                         {socialMediaArr.map((el)=> {
                             if(el[1]) {
                             return <div>
-                                <p> <span className={s.title}>{el[0]}:</span> <span className={s.soc_item}>{el[1]}</span></p>
+                                <p> <span className={s.title}>{el[0]}:</span> <span className={s.soc_item}>{<a href={el[1]}> {el[1]} </a>}</span></p>
                             </div>}
 
                         }) }

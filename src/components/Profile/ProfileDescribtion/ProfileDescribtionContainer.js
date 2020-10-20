@@ -9,7 +9,9 @@ import Preloader from "../../common/Preloader/Preloader";
 class ProfileDescribtionContainer extends React.Component {
     componentDidMount() {
 
-        let userId = this.props.match.params.userId
+        let userId = (this.props.match.params.userId)
+        userId =  userId ?? this.props.authorizedUserId ?? 2
+
         this.props.getProfile(userId)
         this.props.getUserStatus(userId)
 
@@ -29,7 +31,9 @@ let mapStateToProps = (state) => {
     return {
         profile: {...state.profile},
         isFetching: state.profile.isFetching,
-        status: state.profile.status
+        status: state.profile.status,
+        isAuth: state.auth.isAuth,
+        authorizedUserId : state.auth.id
     }
 
 }
