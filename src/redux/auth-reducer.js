@@ -59,7 +59,7 @@ export const logOut = ()=> (dispatch)=> {
     })
 }
 export const authCheck = () => (dispatch) => {
-    authRequest.authCheck().then((data)=> {
+  return authRequest.authCheck().then((data)=> {
 
                      if( data.resultCode===0){
                 let {id, login, email} = data.data
@@ -67,5 +67,6 @@ export const authCheck = () => (dispatch) => {
             }
         }
     )
+
 }
 export default authReducer;

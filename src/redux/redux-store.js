@@ -5,6 +5,8 @@ import friendsReducer from "./friends-reducer";
 import usersReducer from "./users-reducer";
 import authReducer from "./auth-reducer";
 import thunk from 'redux-thunk';
+import appReducer from "./app-reducer";
+
 
 
 
@@ -14,6 +16,7 @@ let reducers = combineReducers({
     friends: friendsReducer,
     usersSearch: usersReducer,
     auth: authReducer,
+    app: appReducer
 
 
 
