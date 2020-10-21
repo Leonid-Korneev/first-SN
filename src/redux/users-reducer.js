@@ -12,7 +12,8 @@ let initialState = {
     users: [],
     currentPage: 1,
     totalUsersCount: 0,
-    pageSize: 6,
+    pageSize: 15,
+
     isFetching: false,
     isFollowingInProgress: false,
     followingUsers: []
@@ -115,7 +116,7 @@ const usersReducer = (state = initialState, action) => {
         }
         case SHOW_MORE_USERS: {
 
-            return {...state, currentPage: state.currentPage + 1}
+            return {...state, currentPage: action.currentPage }
 
         }
         case TOGGLE_IS_FETCHING: {

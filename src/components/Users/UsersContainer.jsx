@@ -12,6 +12,13 @@ import {
 
 
 import Preloader from "../common/Preloader/Preloader";
+import {
+    checkFetching,
+    getCurrentPage, getIsFollowingInProgress,
+    getPageSize,
+    getTotalUsersCount,
+    getUsersSearch
+} from "../../redux/users-selectors";
 
 
 
@@ -57,12 +64,12 @@ let mapStateToProps = (state) => {
 
 
     return ({
-        usersSearch: state.usersSearch,
-        currentPage: state.usersSearch.currentPage,
-        totalUsersCount: state.usersSearch.totalUsersCount,
-        pageSize: state.usersSearch.pageSize,
-        isFetching: state.usersSearch.isFetching,
-        isFollowingInProgress: state.usersSearch.isFollowingInProgress
+        usersSearch: getUsersSearch(state),
+        currentPage: getCurrentPage(state),
+        totalUsersCount: getTotalUsersCount(state),
+        pageSize: getPageSize(state),
+        isFetching: checkFetching(state),
+        isFollowingInProgress: getIsFollowingInProgress(state)
     })
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Users.module.css";
 import avatar from "../../assets/images/default-avtar.jpg";
 import {NavLink} from "react-router-dom";
-
+import Pagination  from '@material-ui/lab/Pagination';
 
 
 const Users = (props) => {
@@ -55,9 +55,14 @@ const Users = (props) => {
 
             })}
             {/*<div className={style.pages}>      {pagesButton} </div>*/}
-            <span><button className={style.showMore} onClick={() => {
-                props.onShowMoreClicked(props.currentPage + 1)
-            }}>Show more users</button></span>
+            <div className={style.pag}><Pagination count={pages}  page={props.currentPage}  onChange={ (e,page)=>{{
+
+                debugger
+                props.onShowMoreClicked(page)
+            }}  }/></div>
+            {/*<span><button className={style.showMore} onClick={() => {*/}
+            {/*    props.onShowMoreClicked(props.page)*/}
+            {/*}}>Show more users</button></span>*/}
         </div>
     )
 }
