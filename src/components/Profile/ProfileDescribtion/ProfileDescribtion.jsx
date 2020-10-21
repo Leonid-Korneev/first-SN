@@ -16,7 +16,8 @@ const ProfileDescribtion = (props) => {
     return (
 
 
-        <>  {!props.profile.profile ? <Preloader/> :
+        <>  {
+            !props.profile.profile ? <Preloader/> :
             <div className={s.item}>
 
 
