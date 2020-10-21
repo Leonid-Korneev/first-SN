@@ -14,12 +14,11 @@ import {
 import Preloader from "../common/Preloader/Preloader";
 import {
     checkFetching,
-    getCurrentPage, getIsFollowingInProgress,
+    getCurrentPage, getFollowingUsers, getIsFollowingInProgress,
     getPageSize,
-    getTotalUsersCount,
-    getUsersSearch
-} from "../../redux/users-selectors";
+    getTotalUsersCount, getUsers,
 
+} from "../../redux/users-selectors";
 
 
 class UsersAPIComponent extends React.Component {
@@ -42,14 +41,19 @@ class UsersAPIComponent extends React.Component {
         return (
             <>  {this.props.isFetching ? <Preloader/> :
                 <Users
-                    usersSearch={this.props.usersSearch}
+                    users={this.props.users}
                     currentPage={this.props.currentPage}
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
+                    followingUsers={this.props.followingUsers}
                     isFollowingInProgress={this.props.isFollowingInProgress}
-                    onShowMoreClicked={(currentPage) => {this.onShowMoreClicked(currentPage)}}
-                    onPageChanged={(pageNumber) => {this.onPageChanged(pageNumber)}}
-                    follow = {this.props.follow}
+                    onShowMoreClicked={(currentPage) => {
+                        this.onShowMoreClicked(currentPage)
+                    }}
+                    onPageChanged={(pageNumber) => {
+                        this.onPageChanged(pageNumber)
+                    }}
+                    follow={this.props.follow}
                 />}
             </>
 
@@ -64,16 +68,18 @@ let mapStateToProps = (state) => {
 
 
     return ({
-        usersSearch: getUsersSearch(state),
+        users: getUsers(state),
         currentPage: getCurrentPage(state),
         totalUsersCount: getTotalUsersCount(state),
         pageSize: getPageSize(state),
         isFetching: checkFetching(state),
+        followingUsers: getFollowingUsers(state),
         isFollowingInProgress: getIsFollowingInProgress(state)
     })
 }
 
 let mapDispatchToProps = {
+
 
     toggleFollow,
     setPage,

@@ -13,10 +13,9 @@ let initialState = {
     currentPage: 1,
     totalUsersCount: 0,
     pageSize: 15,
-
     isFetching: false,
     isFollowingInProgress: false,
-    followingUsers: []
+    followingUsers: [],
 
 
 }
@@ -60,7 +59,6 @@ export const getNewUsers = (context, page) => {
             })
     }
 }
-
 export const follow = (userId, isFolowed) => {
 
 
@@ -83,9 +81,8 @@ export const follow = (userId, isFolowed) => {
             })
     }
 }
-
-
 const usersReducer = (state = initialState, action) => {
+
 
     switch (action.type) {
 
@@ -116,7 +113,7 @@ const usersReducer = (state = initialState, action) => {
         }
         case SHOW_MORE_USERS: {
 
-            return {...state, currentPage: action.currentPage }
+            return {...state, currentPage: action.currentPage}
 
         }
         case TOGGLE_IS_FETCHING: {

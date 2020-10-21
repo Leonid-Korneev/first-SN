@@ -21,7 +21,11 @@ class ProfileDescribtionContainer extends React.Component {
 
 
 
-    render() {return  this.props.isFetching ? <Preloader/>  :  <ProfileDescribtion {...this.props}/>}
+    render() {
+
+     return  this.props.isFetching ? <Preloader/>  :
+            <ProfileDescribtion {...this.props}/>
+    }
 }
 
 
@@ -29,7 +33,7 @@ let mapStateToProps = (state) => {
 
 
     return {
-        profile: {...state.profile},
+        profile: state.profile,
         isFetching: state.profile.isFetching,
         status: state.profile.status,
         isAuth: state.auth.isAuth,

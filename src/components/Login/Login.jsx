@@ -11,7 +11,7 @@ import {Redirect} from "react-router-dom";
 
 export let LoginForm = (props) => {
     let onSubmit = (formData,form) => {
-        debugger
+
         props.logIn(formData)
         setTimeout(form.restart)
 

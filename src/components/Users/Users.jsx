@@ -24,7 +24,7 @@ const Users = (props) => {
     return (
         <div className={style.users__content}>
 
-            {props.usersSearch.users.map((user) => {
+            {props.users.map((user) => {
 
                 return (
 
@@ -37,7 +37,7 @@ const Users = (props) => {
                                      alt="ProfileImage"/>
                             </NavLink>
 
-                            <button className={style.follow_btn} disabled={props.usersSearch.followingUsers.includes(user.id)} onClick={() => {
+                            <button className={style.follow_btn} disabled={props.followingUsers.includes(user.id)} onClick={() => {
                                 followButtonClicked(user)
                             }}> {user.followed ? "Unfollow" : "Follow"} </button>
 
@@ -57,7 +57,7 @@ const Users = (props) => {
             {/*<div className={style.pages}>      {pagesButton} </div>*/}
             <div className={style.pag}><Pagination count={pages}  page={props.currentPage}  onChange={ (e,page)=>{{
 
-                debugger
+
                 props.onShowMoreClicked(page)
             }}  }/></div>
             {/*<span><button className={style.showMore} onClick={() => {*/}

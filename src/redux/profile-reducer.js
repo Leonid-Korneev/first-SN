@@ -23,7 +23,8 @@ let initialState = {
     },
     profile: null,
     isFetching: false,
-    status: ""
+    status: "",
+
 };
 
 

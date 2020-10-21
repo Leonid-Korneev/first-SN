@@ -9,6 +9,7 @@ const ProfileDescribtion = (props) => {
 
 
 
+
     let profile = props.profile.profile
     let socialMediaArr = !props.profile.profile ? [] : Object.entries(props.profile.profile.contacts)
 
