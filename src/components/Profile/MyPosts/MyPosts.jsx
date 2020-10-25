@@ -7,10 +7,10 @@ import {maxLengthCreator} from "../../../utils/validators/validators";
 
 
 const MyPosts = (props) => {
+    window.props = props
+    console.log(props)
     const max100Symbols = maxLengthCreator(100)
-
-
-    let state = props.profile
+      let state = props.profile
     const onSubmit = (formData,form) => {
         props.addPost(formData.newPostText)
         setTimeout(form.restart)

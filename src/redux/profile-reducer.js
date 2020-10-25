@@ -13,14 +13,6 @@ let initialState = {
         {id: 2, text: "This is my first post", likes: 43}
     ],
     newPostText: "",
-    profileInfo: {
-        avatar: "",
-        name: "Vitaly",
-        birthDate: "26.03.1998",
-        city: "Vinnica",
-        education: "8 grade",
-        website: "youtube.com/arthas"
-    },
     profile: null,
     isFetching: false,
     status: "",

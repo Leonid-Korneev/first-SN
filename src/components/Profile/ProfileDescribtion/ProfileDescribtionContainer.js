@@ -1,31 +1,27 @@
 import {connect} from "react-redux";
 import ProfileDescribtion from "./ProfileDescribtion";
 import {getProfile, getUserStatus, updateUserStatus} from "../../../redux/profile-reducer";
-import React from "react";
+import React, {useEffect} from "react";
 import {withRouter} from "react-router-dom";
 import Preloader from "../../common/Preloader/Preloader";
 
 
-class ProfileDescribtionContainer extends React.Component {
-    componentDidMount() {
-
-        let userId = (this.props.match.params.userId)
-        userId =  userId ?? this.props.authorizedUserId ?? 2
-
-        this.props.getProfile(userId)
-        this.props.getUserStatus(userId)
 
 
-    }
+const ProfileDescribtionContainer = (props)=> {
+    let userId = (props.match.params.userId)
+    userId =  userId ?? props.authorizedUserId ?? 2
+    useEffect(()=>{
 
 
+      props.getProfile(userId)
+      props.getUserStatus(userId)
+
+    }, [userId])
 
 
-    render() {
+  return (props.isFetching) ? <Preloader/>  : <ProfileDescribtion {...props}/>
 
-     return  this.props.isFetching ? <Preloader/>  :
-            <ProfileDescribtion {...this.props}/>
-    }
 }
 
 
