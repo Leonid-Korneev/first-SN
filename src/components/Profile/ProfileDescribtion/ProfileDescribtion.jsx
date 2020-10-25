@@ -40,6 +40,9 @@ const ProfileDescribtion = (props) => {
                             return <div>
                                 <p> <span className={s.title}>{el[0]}:</span> <span className={s.soc_item}>{<a href={el[1]}> {el[1]} </a>}</span></p>
                             </div>}
+                            else {
+                                return null
+                            }
 
                         }) }
 

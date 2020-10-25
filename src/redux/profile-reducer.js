@@ -57,32 +57,30 @@ const profileReducer = (state = initialState, action) => {
 
 
 }
-export const getProfile = (userId) => (dispatch) => {
+export const getProfile = (userId) => async (dispatch) => {
 
     dispatch(toggleIsFetching(true))
-    profileAPI.getProfile(userId)
-        .then((response) => {
-            dispatch(toggleIsFetching(false))
-            dispatch(setProfile(response.data))
-        })
+    let response = await profileAPI.getProfile(userId)
+    dispatch(toggleIsFetching(false))
+    dispatch(setProfile(response.data))
+
 }
-export const getUserStatus = (userId) => (dispatch) => {
+export const getUserStatus = (userId) => async (dispatch) => {
 
 
-    profileAPI.getUserStatus(userId).then((response) => {
+    let response = await profileAPI.getUserStatus(userId)
+    dispatch(setUserStatus(response.data))
 
-        dispatch(setUserStatus(response.data))
-    })
 }
-export const updateUserStatus = (status) => (dispatch) => {
+export const updateUserStatus = (status) => async (dispatch) => {
 
-    profileAPI.updateUserStatus(status).then((response) => {
+    let response = await profileAPI.updateUserStatus(status)
 
-        if (response.data.resultCode === 0) {
+    if (response.data.resultCode === 0) {
 
-            dispatch(setUserStatus(status))
-        }
-    })
+        dispatch(setUserStatus(status))
+
+    }
 }
 
 

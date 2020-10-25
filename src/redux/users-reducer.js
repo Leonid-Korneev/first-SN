@@ -31,32 +31,26 @@ export const toggleFollowing = (isFollowingInProgress, userId) => ({
     userId
 })
 export const getDefaultUsers = (context) => {
-
-
-    return (dispatch) => {
-
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true))
+        let data = await usersApiRequster.getUsers.call(context)
+        dispatch(setUsers(data.items))
+        dispatch(toggleIsFetching(false))
+        dispatch(setTotalUsersCount(data.totalCount))
 
-        usersApiRequster.getUsers.call(context)
-            .then((data) => {
-                dispatch(setUsers(data.items))
-                dispatch(toggleIsFetching(false))
-                dispatch(setTotalUsersCount(data.totalCount))
-
-            })
     }
 
 }
 export const getNewUsers = (context, page) => {
-    return (dispatch) => {
+    return async (dispatch) => {
 
         dispatch(showMoreUsers(page))
         dispatch(toggleIsFetching(true))
-        usersApiRequster.getUsers.call(context, page)
-            .then((response) => {
-                dispatch(toggleIsFetching(false))
-                dispatch(setUsers(response.data.items))
-            })
+        let response = await usersApiRequster.getUsers.call(context, page)
+
+        dispatch(toggleIsFetching(false))
+        dispatch(setUsers(response.data.items))
+
     }
 }
 export const follow = (userId, isFolowed) => {
@@ -73,6 +67,8 @@ export const follow = (userId, isFolowed) => {
 
             })
             : followUser.follow(userId).then((response) => {
+
+
                 dispatch(toggleFollowing(false, userId))
                 if (response.data.resultCode === 0) {
                     dispatch(toggleFollow(userId))
@@ -126,7 +122,7 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFollowingInProgress: action.isFollowingInProgress,
-                followingUsers: action.isFollowingInProgress ? [...state.followingUsers, action.userId] : state.followingUsers.filter(id => id !== action.userId)
+                followingUsers: action.isFollowingInProgress ? [...state.followingUsers, action.userId] : [...state.followingUsers].filter(id => id !== action.userId)
             }
 
 

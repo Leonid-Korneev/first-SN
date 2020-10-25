@@ -10,15 +10,15 @@ import DialogNewMessageContainer from "./DialogNewMessage/DialogNewMessageContai
 const Dialogs = (props) => {
 
 
-    const dialogsElements = props.dialogs.dialogsData.map(el => <DialogItem name={el.name} id={el.id} avatar={el.avatar}
+    const dialogsElements = props.dialogs.dialogsData.map(el => <DialogItem key={el.id} name={el.name} id={el.id} avatar={el.avatar}
                                                                             message={el.text}/>);
     const dialog = []
     for (let object of props.dialogs.dialogsData) {
-        dialog.push(props.dialogs.dialogsData[object.id - 1].messageData.map(el => <DialogMessage author={el.author}
+        dialog.push(props.dialogs.dialogsData[object.id - 1].messageData.map(el => <DialogMessage  key={el.id} author={el.author}
                                                                                                   text={el.text}/>))
     }
 
-    const dialogsPaths = props.dialogs.dialogsData.map(el => <Route path={"/dialogs/" + el.id}
+    const dialogsPaths = props.dialogs.dialogsData.map(el => <Route key={el.id} path={"/dialogs/" + el.id}
                                                                     render={() => <div>{dialog[el.id - 1]}</div>}/>)
 
     if (!props.isAuth) {

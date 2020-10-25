@@ -1,8 +1,7 @@
 import React from "react";
 import style from "./Users.module.css";
-import avatar from "../../assets/images/default-avtar.jpg";
-import {NavLink} from "react-router-dom";
-import Pagination  from '@material-ui/lab/Pagination';
+import Pagination from '@material-ui/lab/Pagination';
+import {User} from "./User/User";
 
 
 const Users = (props) => {
@@ -17,52 +16,19 @@ const Users = (props) => {
         }}>{i}|</span>)
     }
 
-    let followButtonClicked = (user) => {
-        props.follow(user.id,user.followed)
-    }
 
     return (
         <div className={style.users__content}>
+            {props.users.map((user) =>
+                <User key={user.id} user={user} followingUsers={props.followingUsers} follow={props.follow}/>
+            )}
 
-            {props.users.map((user) => {
+           <Pagination className={style.pag} count={pages} page={props.currentPage} onChange={(e, page) => {
 
-                return (
+                    props.onShowMoreClicked(page)
 
-                    <div className={style.user}>
+            }}/>
 
-                        <div className={style.icon}>
-                            <NavLink to={"/profile/" + user.id}>
-                                <img className={style.avatar}
-                                     src={ user.photos.small ?? avatar}
-                                     alt="ProfileImage"/>
-                            </NavLink>
-
-                            <button className={style.follow_btn} disabled={props.followingUsers.includes(user.id)} onClick={() => {
-                                followButtonClicked(user)
-                            }}> {user.followed ? "Unfollow" : "Follow"} </button>
-
-
-                        </div>
-                        <div className={style.content}>
-                            <div className={style.name}>{user.name}</div>
-                            <div className={style.country}>{"user.location.country"},</div>
-                            <div className={style.status}>{user.status}</div>
-                            <div className={style.city}>{"user.location.city"}</div>
-                        </div>
-                    </div>
-                )
-
-
-            })}
-            {/*<div className={style.pages}>      {pagesButton} </div>*/}
-            <div className={style.pag}><Pagination count={pages}  page={props.currentPage}  onChange={ (e,page)=>{{
-
-
-                props.onShowMoreClicked(page)
-            }}  }/></div>
-            {/*<span><button className={style.showMore} onClick={() => {*/}
-            {/*    props.onShowMoreClicked(props.page)*/}
-            {/*}}>Show more users</button></span>*/}
         </div>
     )
 }
