@@ -24,13 +24,13 @@ const  Status = (props)=> {
 
 
 
-        return( <>
+        return( <div>
 
             {(!editMode) ? <span onDoubleClick={enableEditMode}>{props.status || 'No status yet.'}</span> :
                 <input autoFocus={true} onBlur={disableEditMode} onChange={onStatusUpdate} defaultValue={status }/>}
 
 
-        </>)
+        </div>)
 
 
 
