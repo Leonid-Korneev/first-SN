@@ -12,6 +12,6 @@ let mapStateToProps = (state) => {
     }
 }
 
+const DialogsContainer =   compose(connect(mapStateToProps), withRouter, withAuthRedirect)(Dialogs)
 
-
-export default  compose(connect(mapStateToProps), withRouter, withAuthRedirect)(Dialogs)
+export default  DialogsContainer
