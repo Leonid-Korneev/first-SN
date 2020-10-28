@@ -67,6 +67,15 @@ export const profileAPI = {
         })
     },
 
+
+    updateUserPhoto(photos) {
+        const formData = new FormData()
+        formData.append("image", photos[0])
+        return instance.put(`/profile/photo`, formData,{  headers: {
+                'Content-Type': 'multipart/form-data'
+            }})
+    },
+
     getUserStatus(userId) {
 
         return instance.get(`/profile/status/${userId}`)

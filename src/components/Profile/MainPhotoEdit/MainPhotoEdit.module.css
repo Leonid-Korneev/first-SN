@@ -1,0 +1,23 @@
+.container {
+    width: 30%;
+    height: 50%;
+
+    background-color: #d0d7f2;
+    position: relative;
+    left: 35%;
+    top: 10%;
+
+
+}
+.photo__example{
+    width: 30%;
+    position: absolute;
+    left: 35%;
+    top: 20%;
+    overflow: hidden;
+    padding: 10px;
+    border: dimgrey 1px solid;
+    border-radius: 5px;
+
+
+}

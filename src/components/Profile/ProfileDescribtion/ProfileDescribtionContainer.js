@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import ProfileDescribtion from "./ProfileDescribtion";
-import {getProfile, getUserStatus, updateUserStatus} from "../../../redux/profile-reducer";
+import {getProfile, getUserStatus, savePhoto, updateUserStatus} from "../../../redux/profile-reducer";
 import React, {useEffect} from "react";
 import {withRouter} from "react-router-dom";
 import Preloader from "../../common/Preloader/Preloader";
@@ -20,7 +20,7 @@ const ProfileDescribtionContainer = (props)=> {
     }, [userId])
 
 
-  return (props.isFetching) ? <Preloader/>  : <ProfileDescribtion {...props}/>
+  return (props.isFetching) ? <Preloader/>  : <ProfileDescribtion {...props} savePhoto={props.savePhoto}  userId={userId} />
 
 }
 
@@ -40,7 +40,8 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = {
     updateUserStatus,
     getUserStatus,
-    getProfile
+    getProfile,
+    savePhoto
 }
 
 

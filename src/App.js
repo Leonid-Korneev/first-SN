@@ -1,7 +1,7 @@
 import React, {lazy, Suspense} from 'react';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import {BrowserRouter, Route} from "react-router-dom";
+import { HashRouter, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
@@ -30,7 +30,7 @@ class App extends React.Component {
         } else {
             return (
 
-                <BrowserRouter>
+                <HashRouter >
                     <div className="app">
                         <div className="app-wrapper">
                             <link rel="stylesheet"
@@ -59,7 +59,7 @@ class App extends React.Component {
 
 
                     </div>
-                </BrowserRouter>
+                </HashRouter>
 
             );
         }
