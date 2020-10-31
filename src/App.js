@@ -38,12 +38,9 @@ class App extends React.Component {
                             <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
                                   rel="stylesheet"/>
                             <HeaderContainer/>
-
-
                             <NavBar/>
                             <div className="app-wrapper__content">
                                 <Route path="/profile/:userId?" render={() => <Profile/>}/>
-
                                 <Route path="/users" render={() => <UsersContainer/>}/>
                                 <Suspense fallback={<Preloader/>}>
                                 <Route path="/dialogs/:userId?" render={() => <DialogsContainer/>}/>
@@ -52,8 +49,6 @@ class App extends React.Component {
                                 <Route path="/settings" render={() => <Settings/>}/>
                                 <Route path="/music" render={() => <Music/>}/>
                                 <Route path="/login" render={() => <LoginForm/>}/>
-
-
                             </div>
                         </div>
 
