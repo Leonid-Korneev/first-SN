@@ -1,79 +1,45 @@
 import React, {useState} from 'react';
-import s from "./ProfileDescribtion.module.css";
-import avatar from "../../../assets/images/default-avtar.jpg";
 import Preloader from "../../common/Preloader/Preloader";
-import Status from "../ProfileInfo/Status";
 import {Modal} from "@material-ui/core";
-import {MainPhotoEdit} from "../MainPhotoEdit/MainPhotoEdit";
+import {MainPhotoEdit} from "./MainPhotoEdit/MainPhotoEdit";
+import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
+import {ProfileAvatarBlock} from "./ProfileInfo/ProfileAvatarBlock";
+import ProfileEditing from "./ProfileEditing/ProfileEditing";
 
 
-const ProfileDescribtion = ({userId, ...props}) => {
-
-    let [open, setOpen] = useState(false)
+const ProfileDescribtion = ({userId, profile, ...props}) => {
+    const [profileEditingPhoto, setProfileEditingPhoto] = useState(false)
+    const [profileEditingInfoMode, setProfileEditingInfoMode] = useState(false)
     const handleOpen = () => {
-        setOpen(true)
+        setProfileEditingPhoto(true)
     }
     const handleClose = () => {
-        setOpen(false)
+        setProfileEditingPhoto(false)
     }
-    let profile = props.profile.profile
-    let socialMediaArr = !props.profile.profile ? [] : Object.entries(props.profile.profile.contacts)
-
+    const isOwner = userId === props.authorizedUserId
     return (
-
-
         <>  {
-            !props.profile.profile ? <Preloader/> :
-                <div className={s.item}>
-
-
-                    <div className={s.avatar_block}><img className={s.avatar} alt="avatar"
-
-                                                         src={(profile.photos.large) ?? avatar}/>
-                        <button onClick={handleOpen}>Change Avatar</button>
-                    </div>
-                    {(userId === props.authorizedUserId) ? <div>
-
-                    </div> : null}
-                    <Modal
-                        open={open}
-                        onClose={handleClose}>
-                        <MainPhotoEdit handleClose={handleClose} savePhoto={props.savePhoto}/>
-                    </Modal>
-
-
-                    <div className={s.info}>
-                        <p className={s.name}> Name: {profile.fullName}</p>
-
-
-                        <p className={s.education}><span className={s.title}>Status:</span> <Status {...props}/></p>
-                        <div>
-                            {profile.lookingForAJob ? <div className={s.item}><span className={s.title}>Информация по трудоустройству:</span> {profile.lookingForAJobDescription}
-                            </div> : ""}
-
-
-                            {<h4 className={s.item}>Social Media :</h4>}
-                            {socialMediaArr.map((el) => {
-                                if (el[1]) {
-                                    return <div>
-                                        <p><span className={s.title}>{el[0]}:</span> <span className={s.soc_item}>{<a
-                                            href={el[1]}> {el[1]} </a>}</span></p>
-                                    </div>
-                                } else {
-                                    return null
-                                }
-
-                            })}
-
-                        </div>
-
-
-                    </div>
-                </div>}
-
-
+            !profile ? <Preloader/> :
+                <>
+                    {
+                        <> <ProfileAvatarBlock profile={profile}
+                                               isOwner={isOwner}  setProfileEditingPhoto={setProfileEditingPhoto}/>
+                            <Modal
+                                open={profileEditingPhoto}
+                                onClose={handleClose}>
+                                <MainPhotoEdit handleClose={handleClose} savePhoto={props.savePhoto}/>
+                            </Modal>
+                            {profileEditingInfoMode ?
+                                  <ProfileEditing setProfileEditingInfoMode={setProfileEditingInfoMode}
+                                                profile={profile}/>
+                                : <ProfileInfo profile={profile} setProfileEditingInfoMode={setProfileEditingInfoMode}
+                                               isOwner={isOwner} {...props} />}
+                        </>}
+                </>
+        }
         </>
     );
 }
+
 
 export default ProfileDescribtion;

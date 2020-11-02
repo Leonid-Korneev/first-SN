@@ -1,9 +1,9 @@
 import React from "react";
-import preload from "../../../assets/images/preloader.svg";
 import style from "./Preloader.module.css"
+import "./Preloader.css"
 
 const  Preloader = () => {
-    return <div  className={style.content}>  <img className={style.preloader} src={preload} alt={"Preloader"} />  </div>
+    return <div  className={style.content}>  <div className="preloader-container"><div className="lds-dual-ring"/></div> </div>
 }
 
 export default Preloader

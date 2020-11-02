@@ -77,7 +77,7 @@ export const savePhoto = (photos) => async (dispatch) => {
 
 
 
-    //
+
     let response = await profileAPI.updateUserPhoto(photos)
 
 
@@ -106,6 +106,7 @@ export const getUserStatus = (userId) => async (dispatch) => {
 }
 export const updateUserStatus = (status) => async (dispatch) => {
 
+
     let response = await profileAPI.updateUserStatus(status)
 
     if (response.data.resultCode === 0) {
@@ -114,10 +115,28 @@ export const updateUserStatus = (status) => async (dispatch) => {
 
     }
 }
+export const updateUserInfo = (updatedInfo)=>async (dispatch, getState )=>{
+
+    const userId =  getState().auth.id
+
+    let response = await profileAPI.updateUserInfo(updatedInfo)
+    if (response.data.resultCode === 0) {
+
+        dispatch(getProfile(userId))
+
+    } else {
+
+       return Promise.reject(response.data.messages[0])
+
+    }
+
+}
+
 
 export const savePhotoSuccess = (photos)=> ({type:SAVE_PHOTO_SUCCESS, photos })
 export const addPost = (newPostText) => ({type: ADD_POST, newPostText})
 export const setUserStatus = (status) => ({type: SET_STATUS, status})
 export const setProfile = (profile) => ({type: SET_PROFILE, profile})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+
 export default profileReducer;

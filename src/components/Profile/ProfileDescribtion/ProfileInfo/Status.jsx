@@ -1,16 +1,15 @@
 import React, {useEffect, useState} from "react";
 
-const  Status = (props)=> {
-
+const  Status = ({updateUserStatus, isOwner, ...props})=> {
 
     const [editMode, setEditMode] = useState(false)
     const [status, setStatus] = useState(props.status)
     useEffect(()=>{
 
-        setStatus(props.status)
-    }, [props.status])
+        setStatus(status)
+    }, [status])
    const disableEditMode = () => {
-        props.updateUserStatus(status)
+        updateUserStatus(props.status)
         setEditMode(false)
     }
    const onStatusUpdate = (e) => {
@@ -24,13 +23,13 @@ const  Status = (props)=> {
 
 
 
-        return( <div>
+        return( <>
 
-            {(!editMode) ? <span onDoubleClick={enableEditMode}>{props.status || 'No status yet.'}</span> :
-                <input autoFocus={true} onBlur={disableEditMode} onChange={onStatusUpdate} defaultValue={status }/>}
+            {(!editMode) ? <span onDoubleClick={ isOwner && enableEditMode }>{props.status || 'No status yet.'}</span> :
+                <input autoFocus={true} onBlur={disableEditMode} onChange={onStatusUpdate} defaultValue={props.status }/>}
 
 
-        </div>)
+        </>)
 
 
 
