@@ -5,6 +5,7 @@ import React from "react";
 
 export const UserItem = ({user,followingUsers, follow })=> {
 
+
     let followButtonClicked = (user) => {
         follow(user.id,user.followed)
     }

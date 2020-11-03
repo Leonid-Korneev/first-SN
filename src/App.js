@@ -12,6 +12,8 @@ import {LoginForm} from "./components/Login/Login";
 import {connect} from "react-redux";
 import {initialization} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
+import Friends from "./components/Friends/Friends";
+
 const DialogsContainer = lazy(()=>import("./components/Dialogs/DialogsContainer"))
 
 
@@ -49,6 +51,7 @@ class App extends React.Component {
                                 <Route path="/settings" render={() => <Settings/>}/>
                                 <Route path="/music" render={() => <Music/>}/>
                                 <Route path="/login" render={() => <LoginForm/>}/>
+                                <Route path="/friends" render={() => <Friends/>}/>
                             </div>
                         </div>
 

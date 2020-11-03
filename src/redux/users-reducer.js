@@ -18,7 +18,8 @@ let initialState = {
     isFetching: false,
     isFollowingInProgress: false,
     followingUsers: [],
-    currentFilter: ""
+    currentFilter: "",
+    isShowingFriends : false
 
 
 }
@@ -78,20 +79,19 @@ export const follow = (userId, isFolowed) => {
                 dispatch(toggleFollowing(false, userId))
                 if (response.data.resultCode === 0) {
                     dispatch(toggleFollow(userId))
-
+                    dispatch(getFriends(6))
                 }
 
             })
             : followUser.follow(userId).then((response) => {
-
-
                 dispatch(toggleFollowing(false, userId))
                 if (response.data.resultCode === 0) {
                     dispatch(toggleFollow(userId))
+                    dispatch(getFriends(6))
                 }
 
             })
-        dispatch(getFriends(6))
+
     }
 }
 const usersReducer = (state = initialState, action) => {

@@ -93,7 +93,7 @@ export const profileAPI = {
 
 
 export const friendsApi = {
-    getFriends(quantity) {
-        return instance.get(`/users?count=${quantity}&friend=true`).then((response) => response.data)
+    getFriends(quantity,page) {
+        return instance.get(`/users?count=${quantity}&friend=true&page=${page}`).then((response) => response.data)
     }
 }

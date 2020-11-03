@@ -10,3 +10,5 @@ export const checkFetching  = (state)=> state.usersSearch.isFetching
 export const getIsFollowingInProgress = (state)=> state.usersSearch.isFollowingInProgress
 export const getFollowingUsers = (state)=> state.usersSearch.followingUsers
 export const getCurrentFilter = (state)=> state.usersSearch.currentFilter
+
+
