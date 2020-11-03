@@ -9,17 +9,21 @@ const instance = axios.create({
 
 
 export const usersApiRequster = {
-    getUsers(page) {
+    getUsers(page, filter) {
+
+
         if (!arguments.length) {
+
             return instance.get(`/users?count=${this.props.pageSize}`).then((response) => response.data)
         } else {
-            return instance.get(`/users?page=${page}&count=${this.props.pageSize}`)
+            return instance.get(`/users?page=${page}&count=${this.props.pageSize}&term=${filter}`)
         }
+
+
     },
 
 
 }
-
 
 
 export const followUser = {
@@ -42,14 +46,14 @@ export const authRequest = {
 
         return instance.post("/auth/login", {
 
-            email: formData.email ,
+            email: formData.email,
             password: formData.password,
-            rememberMe : formData.rememberMe
+            rememberMe: formData.rememberMe
 
         })
     },
 
-    authLogOut(){
+    authLogOut() {
         return instance.delete("/auth/login")
     }
 
@@ -71,9 +75,11 @@ export const profileAPI = {
     updateUserPhoto(photos) {
         const formData = new FormData()
         formData.append("image", photos[0])
-        return instance.put(`/profile/photo`, formData,{  headers: {
+        return instance.put(`/profile/photo`, formData, {
+            headers: {
                 'Content-Type': 'multipart/form-data'
-            }})
+            }
+        })
     },
 
     getUserStatus(userId) {
@@ -82,5 +88,12 @@ export const profileAPI = {
     },
     updateUserInfo(updatedInfo) {
         return instance.put("/profile", updatedInfo)
+    }
+}
+
+
+export const friendsApi = {
+    getFriends(quantity) {
+        return instance.get(`/users?count=${quantity}&friend=true`).then((response) => response.data)
     }
 }

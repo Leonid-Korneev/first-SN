@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import avatar from "../../../assets/images/default-avtar.jpg";
 import React from "react";
 
-export const User = ({user,followingUsers, follow })=> {
+export const UserItem = ({user,followingUsers, follow })=> {
 
     let followButtonClicked = (user) => {
         follow(user.id,user.followed)

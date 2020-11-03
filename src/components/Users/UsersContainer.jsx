@@ -13,7 +13,7 @@ import {
 
 import Preloader from "../common/Preloader/Preloader";
 import {
-    checkFetching,
+    checkFetching, getCurrentFilter,
     getCurrentPage, getFollowingUsers, getIsFollowingInProgress,
     getPageSize,
     getTotalUsersCount, getUsers,
@@ -33,7 +33,8 @@ class UsersAPIComponent extends React.Component {
     }
 
     onShowMoreClicked(currentPage) {
-        this.props.getNewUsers(this, currentPage)
+
+        this.props.getNewUsers(this, currentPage,this.props.currentFilter)
     }
 
     render() {
@@ -41,7 +42,9 @@ class UsersAPIComponent extends React.Component {
         return (
             <>  {this.props.isFetching ? <Preloader/> :
                 <Users
+                    that = {this}
                     users={this.props.users}
+
                     currentPage={this.props.currentPage}
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
@@ -74,7 +77,8 @@ let mapStateToProps = (state) => {
         pageSize: getPageSize(state),
         isFetching: checkFetching(state),
         followingUsers: getFollowingUsers(state),
-        isFollowingInProgress: getIsFollowingInProgress(state)
+        isFollowingInProgress: getIsFollowingInProgress(state),
+        currentFilter: getCurrentFilter(state)
     })
 }
 

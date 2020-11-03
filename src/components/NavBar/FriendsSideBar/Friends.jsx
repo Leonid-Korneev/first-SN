@@ -1,22 +1,30 @@
 import React from 'react';
 import s from "./Friends.module.css"
-
+import defAvatar from "./../../../assets/images/default-avtar.jpg"
 import FriendsItem from "./FriendsItem/FriendsItem";
+import {NavLink} from "react-router-dom";
 
-const Friends = (props) => {
+const Friends = ({friends}) => {
+    debugger
 
-    const friendInfo = props.friends.friendsItemData.map(el => <FriendsItem  key= {el.id} name={el.name} id={el.id}
-                                                                            avatar={el.avatar}/>)
+    let friendsArray
+
+    if(friends.friends) {
+        friendsArray = friends.friends.map(friend=><FriendsItem  key= {friend.id} name={friend.name} id={friend.id} avatar={friend.photos.small?? defAvatar  }/>)
+    }
+
 
     return (
         <div>
-            <h3>Friends</h3>
+           <NavLink className={s.main__link}  to={"/friends"}> <h3 >Friends</h3></NavLink>
             <div className={s.container}>
-                {friendInfo}
+                {friendsArray}
             </div>
 
         </div>
     );
+
 }
+
 
 export default Friends;

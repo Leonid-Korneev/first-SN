@@ -5,7 +5,7 @@ import avatar from "../../../../assets/images/default-avtar.jpg";
 
 
 export const ProfileAvatarBlock = ({profile,isOwner,setProfileEditingPhoto})=> {
-    debugger
+
 
     const handleOpen = () => {
         setProfileEditingPhoto(true)

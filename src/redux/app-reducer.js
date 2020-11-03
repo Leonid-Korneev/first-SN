@@ -1,4 +1,5 @@
 import {authCheck} from "./auth-reducer";
+import {getFriends} from "./friends-reducer";
 
 
 const SET_INITIALIZING_SUCCESS = "SET_INITIALIZING_SUCCESS"
@@ -32,8 +33,11 @@ export const initializingSuccess = () => ({type: SET_INITIALIZING_SUCCESS})
 export const initialization = () => (dispatch) => {
 
     dispatch(authCheck()).then(() => {
+        dispatch(getFriends(6))
         dispatch(initializingSuccess())
     })
+
+
 }
 
 export default appReducer;
