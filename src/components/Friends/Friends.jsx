@@ -15,32 +15,21 @@ import {changePage, getFriends} from "../../redux/friends-reducer";
 import Preloader from "../common/Preloader/Preloader";
 
 
-const Friends = ({friends, followingUsers, totalFriendsCount, pageSize, currentPage, follow,changePage,getFriends, isFetching }) => {
-
-    useEffect( ()=> {getFriends()} ,[])
-
-
+const Friends = ({friends, followingUsers, totalFriendsCount, pageSize, currentPage, follow, changePage, getFriends, isFetching}) => {
+    useEffect(() => {
+        getFriends()
+    }, [])
     let pages = Math.ceil(totalFriendsCount / pageSize)
 
-    debugger
     return (
         <>
-
-            {isFetching ? <Preloader/> : <> {friends.map((friend) => (<FriendsItem key={friend.id} friend={friend} followingUsers={followingUsers} follow={follow}/>))}
-
+            {isFetching ? <Preloader/> : <> {friends.map((friend) => (
+                <FriendsItem key={friend.id} friend={friend} followingUsers={followingUsers} follow={follow}/>))}
                 <Pagination className={style.pag} count={pages} page={currentPage} onChange={(e, page) => {
-
                     changePage(page)
-
-                }}/></> }
-
-
-
-
-
+                }}/></>}
         </>
     )
-
 }
 
 const mapStateToProps = (state) => ({

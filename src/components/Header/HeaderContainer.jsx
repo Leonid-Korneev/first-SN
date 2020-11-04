@@ -11,22 +11,17 @@ class HeaderContainer  extends React.Component {
     }
 
     render() {
-
        return (
-
             <Header {...this.props}/> )
    }
 }
 
 const mapStateToProps = (state)=> {
-
     return ({
         auth : state.auth
-
     })
 }
 const mapDispatchToProps = {
-
     authCheck,
     logOut
 }
