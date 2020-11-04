@@ -1,19 +1,20 @@
 import React from "react";
-import {Form, Field} from 'react-final-form'
 import s from "./Login.module.css"
 import {connect} from "react-redux";
 import {logIn} from "../../redux/auth-reducer";
-import {customFormElement} from "../common/FormControls/FromControls";
-import {required} from "../../utils/validators/validators";
 import {Redirect} from "react-router-dom";
+import {useForm} from "react-hook-form";
 
 
 
 export let LoginForm = (props) => {
-    let onSubmit = (formData,form) => {
+    const { register, handleSubmit } = useForm();
+
+
+    let onSubmit = (formData) => {
 
         props.logIn(formData)
-        setTimeout(form.restart)
+
 
 
 
@@ -22,25 +23,24 @@ export let LoginForm = (props) => {
     if(props.isAuth) {return <Redirect to={"/profile"}/>}
     return  (
 
+        <div className={s.form__container}>
 
-        <Form onSubmit={onSubmit}  render={
-            ({handleSubmit})=> {
+            {  props.successfulLog===false  ?  <div className={s.form__error}>{props.errorMessages}</div> : undefined}
+            <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
 
-                return (
-                    <div className={s.form__container}>
+                <div className={s.form__item}><input ref={register({ required: true })} name="email"    type="text" placeholder="email"/></div>
+                <div className={s.form__item}><input ref={register({ required: true })} name="password"  type="password"  placeholder="password"/></div>
 
-                        {  props.successfulLog===false  ?  <div className={s.form__error}>{props.errorMessages}</div> : undefined}
-                        <form className={s.form} onSubmit={handleSubmit}>
+                {props.captchaUrl&&
+                <div  className={s.form__item}>
+                    <img src={props.captchaUrl} alt=""/>
+                    <input ref={register} name="captcha"  type="text"  placeholder="Enter symbols here..."/></div>}
 
-                            <div className={s.form__item}><Field name="email" component={customFormElement} validate={required} fieldType="input" type="text" placeholder="email"/></div>
-                            <div className={s.form__item}><Field name="password" component={customFormElement} validate={required} type="password" fieldType="input" placeholder="password"/></div>
-                            <div className={s.form__item}><Field name="remember-me" component="input" type="checkbox" placeholder="password" defaultValue="true"/><label>Remember me</label></div>
-                            <div className={s.form__item__button}><button type="submit">Log-In</button></div>
-                        </form>
-                    </div>
-                )
-            }
-        }/>
+                <div className={s.form__item }><input ref={register} name="remember-me"  type="checkbox" /><label>Remember me</label></div>
+                <div className={s.form__item__button}><button type="submit">Log-In</button></div>
+
+            </form>
+        </div>
 
 
     )
@@ -52,7 +52,8 @@ let mapStateToProps = (state)=> {
     return {
         isAuth: state.auth.isAuth,
         successfulLog: state.auth.successfulLog,
-        errorMessages : state.auth.errorMessages
+        errorMessages : state.auth.errorMessages,
+        captchaUrl: state.auth.captchaUrl
     }
 }
 let mapDispatchToProps = {

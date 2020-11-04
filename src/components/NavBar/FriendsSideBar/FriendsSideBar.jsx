@@ -9,8 +9,8 @@ const FriendsSideBar = ({friends}) => {
 
     let friendsArray
 
-    if(friends.friends) {
-        friendsArray = friends.friends.map(friend=><FriendsSideBarItem key= {friend.id} name={friend.name} id={friend.id} avatar={friend.photos.small?? defAvatar  }/>)
+    if(friends) {
+        friendsArray = friends.map(friend=><FriendsSideBarItem key= {friend.id} name={friend.name} id={friend.id} avatar={friend.photos.small?? defAvatar  }/>)
     }
 
 
@@ -18,7 +18,7 @@ const FriendsSideBar = ({friends}) => {
         <div>
            <NavLink className={s.main__link}  to={"/friends"}> <h3 >Friends</h3></NavLink>
             <div className={s.container}>
-                {friendsArray.filter((friend, index)=>index<3)}
+                {friendsArray}
             </div>
 
         </div>

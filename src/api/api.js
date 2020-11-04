@@ -43,12 +43,14 @@ export const authRequest = {
         return instance.get("/auth/me").then((response) => response.data)
     },
     authLogIn(formData) {
+        debugger
 
         return instance.post("/auth/login", {
 
             email: formData.email,
             password: formData.password,
-            rememberMe: formData.rememberMe
+            rememberMe: formData.rememberMe,
+            captcha: formData.captcha
 
         })
     },
@@ -89,6 +91,16 @@ export const profileAPI = {
     updateUserInfo(updatedInfo) {
         return instance.put("/profile", updatedInfo)
     }
+}
+
+export const securityAPI = {
+
+    securityGetCapcha() {
+        return instance.get(`/security/get-captcha-url`)
+
+    }
+
+
 }
 
 
