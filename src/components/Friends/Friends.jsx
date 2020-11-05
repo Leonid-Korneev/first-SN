@@ -1,21 +1,22 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import {
-    getCurrentPage,
+    getCurrentPage, getFollowingInProgress,
     getFriendsSelector,
     getFriendsTotalCount, getIsFetching,
     getPageSize
 } from "../../redux/friends-selectors";
 import {FriendsItem} from "./FriendsItem/FriendsItem";
-import {follow} from "../../redux/users-reducer";
+
 import {getFollowingUsers} from "../../redux/users-selectors";
 import Pagination from "@material-ui/lab/Pagination";
 import style from "../Users/Users.module.css";
-import {changePage, getFriends} from "../../redux/friends-reducer";
+import {changePage, follow, getFriends} from "../../redux/friends-reducer";
 import Preloader from "../common/Preloader/Preloader";
 
 
-const Friends = ({friends, followingUsers, totalFriendsCount, pageSize, currentPage, follow, changePage, getFriends, isFetching}) => {
+const Friends = ({friends, followingUsers, totalFriendsCount, pageSize, currentPage, follow, changePage, getFriends, isFetching,followingInProgress}) => {
+    debugger
     useEffect(() => {
         getFriends()
     }, [])
@@ -24,7 +25,7 @@ const Friends = ({friends, followingUsers, totalFriendsCount, pageSize, currentP
     return (
         <>
             {isFetching ? <Preloader/> : <> {friends.map((friend) => (
-                <FriendsItem key={friend.id} friend={friend} followingUsers={followingUsers} follow={follow}/>))}
+                <FriendsItem key={friend.id} friend={friend} followingUsers={followingUsers} followingInProgress={followingInProgress} follow={follow}/>))}
                 <Pagination className={style.pag} count={pages} page={currentPage} onChange={(e, page) => {
                     changePage(page)
                 }}/></>}
@@ -38,7 +39,8 @@ const mapStateToProps = (state) => ({
     pageSize: getPageSize(state),
     currentPage: getCurrentPage(state),
     followingUsers: getFollowingUsers(state),
-    isFetching: getIsFetching(state)
+    isFetching: getIsFetching(state),
+    followingInProgress : getFollowingInProgress(state)
 
 })
 

@@ -1,10 +1,12 @@
-import {friendsApi} from "../api/api";
+import {followUser, friendsApi} from "../api/api";
 
 
 const SET_FRIENDS = "SET_FRIENDS"
 const SET_PAGE = "SET_PAGE"
 const SET_SIDEBAR_FRIENDS = "SET_SIDEBAR_FRIENDS"
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
+const TOGGLE_FOLLOWING_IN_PROGRESS = "TOGGLE_FOLLOWING_IN_PROGRESS"
+const TOGGLE_FOLLOW_FRIEND = "TOGGLE_FOLLOW_FRIEND"
 let initialState = {
 
     friends: [],
@@ -13,7 +15,8 @@ let initialState = {
     currentPage: 1,
     sideBarFriends: [],
     sideBarFriendsQuantity: 6,
-    isFetching: false
+    isFetching: false,
+    followingInProgress: false,
 
 
 }
@@ -21,7 +24,13 @@ let initialState = {
 export const setFriends = (friends, totalFriendsCount) => ({type: SET_FRIENDS, friends, totalFriendsCount})
 export const setSideBarFriends = (sideBarFriends) => ({type: SET_SIDEBAR_FRIENDS, sideBarFriends})
 export const setPage = (newPage) => ({type: SET_PAGE, newPage})
+export const toggleFollow = (userId) => ({type: TOGGLE_FOLLOW_FRIEND, userId})
+
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+export const toggleFollowingInProgress = (isFollowingInProgress) => ({
+    type: TOGGLE_FOLLOWING_IN_PROGRESS,
+    isFollowingInProgress
+})
 
 export const changePage = (newPage) => (dispatch) => {
 
@@ -32,6 +41,20 @@ export const changePage = (newPage) => (dispatch) => {
 
 }
 
+export const follow = (userId, isFollowed) => async (dispatch) => {
+    dispatch(toggleFollowingInProgress(true))
+    let response = isFollowed ? await followUser.unfollow(userId) : await followUser.follow(userId)
+    if (response.data.resultCode === 0) {
+
+        dispatch(toggleFollow(userId))
+
+    }
+    dispatch(toggleFollowingInProgress(false))
+
+
+}
+
+
 //thunks AC
 
 export const getFriends = () => async (dispatch, getState) => {
@@ -41,12 +64,15 @@ export const getFriends = () => async (dispatch, getState) => {
     let currentPage = getState().friends.currentPage
     let response = await friendsApi.getFriends(quantity, currentPage)
     dispatch(setFriends(response.items, response.totalCount))
+
     dispatch(toggleIsFetching(false))
 
 
 }
 
 export const getSideBarFriends = () => async (dispatch, getState) => {
+
+
     dispatch(toggleIsFetching(true))
     let quantity = getState().friends.sideBarFriendsQuantity
     let currentPage = 1
@@ -80,11 +106,21 @@ const friendsReducer = (state = initialState, action) => {
             return {...state, isFetching: action.isFetching}
 
         }
+        case TOGGLE_FOLLOWING_IN_PROGRESS : {
+            return {...state, followingInProgress: action.isFollowingInProgress}
+        }
+        case TOGGLE_FOLLOW_FRIEND : {
+            return {
+                ...state, friends: state.friends.map(friend => {
+                    if (friend.id === action.userId)
+                        return {...friend, followed: !friend.followed}
+                    else {
+                        return friend
+                    }
 
-
-
-
-
+                })
+            }
+        }
 
 
         default : {

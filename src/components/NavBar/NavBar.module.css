@@ -2,6 +2,8 @@
 .nav {
   grid-area: n;
   background-color: rgba(0, 26, 255, 0.3);
+  margin: 10px;
+  border-radius: 5px;
 }
 
 .item {

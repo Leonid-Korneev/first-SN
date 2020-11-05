@@ -1,5 +1,5 @@
 import {followUser, usersApiRequster} from "../api/api";
-import {getFriends, getSideBarFriends} from "./friends-reducer";
+
 
 const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW'
 const SET_USERS = "SET_USERS"
@@ -14,7 +14,7 @@ let initialState = {
     users: [],
     currentPage: 1,
     totalUsersCount: 0,
-    pageSize: 15,
+    pageSize: 10,
     isFetching: false,
     isFollowingInProgress: false,
     followingUsers: [],
@@ -68,6 +68,8 @@ export const getFilteredUsers = (searchInfo, currentPage, context) => async (dis
 }
 
 
+
+
 export const follow = (userId, isFolowed) => {
 
 
@@ -78,8 +80,8 @@ export const follow = (userId, isFolowed) => {
                 dispatch(toggleFollowing(false, userId))
                 if (response.data.resultCode === 0) {
                     dispatch(toggleFollow(userId))
-                    dispatch(getFriends())
-                    dispatch(getSideBarFriends())
+                    // dispatch(getFriends())
+                    // dispatch(getSideBarFriends())
                 }
 
             })
@@ -88,7 +90,7 @@ export const follow = (userId, isFolowed) => {
                 if (response.data.resultCode === 0) {
                     dispatch(toggleFollow(userId))
                     // dispatch(getFriends())
-                    dispatch(getSideBarFriends())
+                    // dispatch(getSideBarFriends())
                 }
 
             })

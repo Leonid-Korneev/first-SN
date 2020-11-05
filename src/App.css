@@ -1,7 +1,10 @@
 
 .app-wrapper__content {
     grid-area: c;
-    background-color: rgba(0, 26, 255, 0.1);
+    background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+    position: relative;
 
 }
 

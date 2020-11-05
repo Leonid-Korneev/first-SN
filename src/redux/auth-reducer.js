@@ -3,6 +3,7 @@ import {authRequest, securityAPI} from "../api/api";
 const SET_USER_DATA = "SET_USER_DATA";
 const SET_ERROR_DATA = "SET_ERROR_DATA"
 const SET_CAPTCHA_URL = "SET_CAPTCHA_URL"
+const SET_SUCCESSFUL_LOG = "SET_SUCCESSFUL_LOG"
 
 
 let initialState = {
@@ -25,6 +26,9 @@ const authReducer = (state = initialState, action) => {
         case SET_USER_DATA: {
             return {...state, ...action.data}
         }
+        case SET_SUCCESSFUL_LOG : {
+            return {...state, successfulLog: true }
+        }
         case SET_ERROR_DATA: {
             return {...state, successfulLog: false, errorMessages: [...action.errorMessages]}
         }
@@ -44,9 +48,10 @@ const authReducer = (state = initialState, action) => {
 
 export const setErrorData = (errorMessages) => ({type: SET_ERROR_DATA, errorMessages})
 export const setUserData = (id, login, email, isAuth) => ({type: SET_USER_DATA, data: {id, login, email, isAuth}})
+export const setSuccesfullLog = ()=> ({type: SET_SUCCESSFUL_LOG })
 export const setCaptchaUrl = (captchaUrl) => ({type: SET_CAPTCHA_URL, captchaUrl})
 export const getCaptcha = () => async (dispatch) => {
-    debugger
+
     let response = await securityAPI.securityGetCapcha()
     dispatch(setCaptchaUrl(response.data.url))
 
@@ -57,11 +62,12 @@ export const getCaptcha = () => async (dispatch) => {
 export const logIn = (formData) => async (dispatch) => {
 
     let response = await authRequest.authLogIn(formData)
-    debugger
+
 
     if (response.data.resultCode === 0) {
         dispatch(authCheck())
         dispatch(setCaptchaUrl(null))
+        dispatch(setSuccesfullLog)
     } else {
         if (response.data.resultCode === 10) {
             dispatch(getCaptcha())

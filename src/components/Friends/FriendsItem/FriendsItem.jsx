@@ -3,7 +3,8 @@ import style from "../../Users/Users.module.css";
 import {NavLink} from "react-router-dom";
 import avatar from "../../../assets/images/default-avtar.jpg";
 
-export const FriendsItem = ({friend, follow, followingUsers}) => {
+export const FriendsItem = ({friend, follow,  followingInProgress}) => {
+
     let followButtonClicked = () => {
         follow(friend.id, friend.followed)
     }
@@ -16,7 +17,7 @@ export const FriendsItem = ({friend, follow, followingUsers}) => {
                      src={friend.photos.small ?? avatar}
                      alt="ProfileImage"/>
             </NavLink>
-            <button className={style.follow_btn} disabled={followingUsers.includes(friend.id)} onClick={() => {
+            <button className={style.follow_btn} disabled={followingInProgress} onClick={() => {
                 followButtonClicked(friend)
             }}> {friend.followed ? "Unfollow" : "Follow"} </button>
         </div>

@@ -5,12 +5,19 @@ import {logIn} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 import {useForm} from "react-hook-form";
 
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import {StylesProvider} from '@material-ui/core/styles';
+
+const cln = require('classnames');
+
 
 export let LoginForm = (props) => {
     const {register, handleSubmit} = useForm();
 
 
     let onSubmit = (formData) => {
+
 
         props.logIn(formData)
 
@@ -20,28 +27,39 @@ export let LoginForm = (props) => {
         return <Redirect to={"/profile"}/>
     }
     return (
+        <StylesProvider injectFirst>
+            <div className={s.form__container}>
 
-        <div className={s.form__container}>
 
-            {props.successfulLog === false ? <div className={s.form__error}>{props.errorMessages}</div> : undefined}
-            <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-                <div className={s.form__item}><input ref={register({required: true})} name="email" type="text"
-                                                     placeholder="email"/></div>
-                <div className={s.form__item}><input ref={register({required: true})} name="password" type="password"
-                                                     placeholder="password"/></div>
-                {props.captchaUrl &&
-                <div className={s.form__item}>
-                    <img src={props.captchaUrl} alt=""/>
-                    <input ref={register} name="captcha" type="text" placeholder="Enter symbols here..."/></div>}
-                <div className={s.form__item} ><input ref={register} name="remember-me" type="checkbox"/><label>Remember
-                    me</label></div>
-                <div className={s.form__item__button}>
-                    <button type="submit">Log-In</button>
-                </div>
+                <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+                    {props.successfulLog === false ? <div className={cln(s.form__item,s.form__error) }>{props.errorMessages}</div> : undefined}
+                    <div className={s.form__item}>
+                        <TextField inputRef={register({required: true})} name="email" type="text"
+                                   placeholder="Email" label="Email" variant="outlined" required/>
 
-            </form>
-        </div>
 
+                    </div>
+                    <div className={s.form__item}><TextField inputRef={register({required: true})} name="password"
+                                                             type="password"
+                                                             placeholder="password" label="Password" variant="outlined"
+                                                             required/></div>
+                    {props.captchaUrl &&
+                    <div className={s.form__item}>
+                        <img src={props.captchaUrl} alt=""/>
+                        <TextField className={s.form__item} inputRef={register} name="captcha" type="text" placeholder="Code"
+                                   label="Code" variant="outlined"/></div>}
+                    <div className={s.form__item}><div><input ref={register} name="remember-me" type="checkbox"/><label>Remember
+                        me</label></div></div>
+                    <div className={s.form__item}>
+
+                        <Button className={s.submit__button} type="submit" variant="contained" color="primary">
+                            Log-In
+                        </Button>
+                    </div>
+
+                </form>
+            </div>
+        </StylesProvider>
 
     )
 }
