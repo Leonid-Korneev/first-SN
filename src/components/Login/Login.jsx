@@ -33,7 +33,7 @@ export let LoginForm = (props) => {
                 <div className={s.form__item}>
                     <img src={props.captchaUrl} alt=""/>
                     <input ref={register} name="captcha" type="text" placeholder="Enter symbols here..."/></div>}
-                <div className={s.form__item}><input ref={register} name="remember-me" type="checkbox"/><label>Remember
+                <div className={s.form__item} ><input ref={register} name="remember-me" type="checkbox"/><label>Remember
                     me</label></div>
                 <div className={s.form__item__button}>
                     <button type="submit">Log-In</button>

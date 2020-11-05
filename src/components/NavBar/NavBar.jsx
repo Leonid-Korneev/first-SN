@@ -3,9 +3,30 @@ import s from "./NavBar.module.css"
 import {NavLink} from "react-router-dom";
 import FriendsSideBarContainer from "./FriendsSideBar/FriendsSideBarContainer";
 
+
 const NavBar = () => {
     return (
+
+
+
+
+
         <nav className={s.nav}>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div>
                 <NavLink to="/profile/" activeClassName={s.active} className={s.item}>Profile</NavLink>
             </div>
