@@ -1,5 +1,5 @@
 import React from "react";
-
+import s from "../ProfileDescribtion.module.css"
 
 import Status from "./Status";
 import {SocialMedia} from "./SocialMedia";
@@ -8,32 +8,31 @@ import {stringFirstCharToUpperCase} from "../../../../utils/functions/stringFirs
 
 
 export const ProfileInfo = ({profile, isOwner, setProfileEditingInfoMode, ...props}) => {
-    const onEditClick= ()=> {
-        setProfileEditingInfoMode(true)
-    }
+
 
     const contacts = profile ? profile.contacts : null
 
 
     return (profile &&
-        <>
-            <div><b>Name:</b> {profile.fullName}</div>
-            <div><b>Статус:</b> <Status isOwner={isOwner} {...props}/></div>
+        <div className={s.profileInfoWrapper}>
+            <div className={s.name}> {profile.fullName}  <div className={s.status}> <Status isOwner={isOwner} {...props}/></div>
+            </div>
 
             <div>
                 {profile.lookingForAJob ? (
-                        <>
-                            <div>Нахожусь в поиске работы!</div>
-                            <div><strong>Информация по
-                                трудоустройству:</strong> {profile.lookingForAJobDescription}</div>
-                        </>)
-                    : <div>В данный момент работу не ищу.</div>}
+                        <div className={s.jobBlock}>
+                            <div>I am looking for a job right now!</div>
+                            <div><strong>My professional skills:</strong> {profile.lookingForAJobDescription}</div>
+                        </div>)
+                    : <div>I am not looking for a job right now.</div>}
                 {profile.aboutMe &&<div><b>About me:</b> {profile.aboutMe} </div>}
-                {Object.keys(contacts).map(key => contacts[key] ? <SocialMedia key={key} socialMediaTitle={
-                    stringFirstCharToUpperCase(key)} socialMediaLink={contacts[key]}/> : null)}
+
+
+                <div className={s.socialMediaWrapper}>   {Object.keys(contacts).map(key => contacts[key] ? <SocialMedia key={key} socialMediaTitle={
+                    stringFirstCharToUpperCase(key)} socialMediaLink={contacts[key]}/> : null)}</div>
+
+
             </div>
-            {isOwner && <div>
-                <button onClick={onEditClick}>Edit</button>
-            </div>}
-        </>)
+
+        </div>)
 }

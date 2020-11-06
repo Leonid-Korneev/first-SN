@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Preloader from "../../common/Preloader/Preloader";
+import s from "./ProfileDescribtion.module.css"
 import {Modal} from "@material-ui/core";
 import {MainPhotoEdit} from "./MainPhotoEdit/MainPhotoEdit";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
@@ -20,22 +21,23 @@ const ProfileDescribtion = ({userId, profile, ...props}) => {
     return (
         <>  {
             !profile ? <Preloader/> :
-                <>
+                <div className={s.profileWrapper}>
                     {
                         <> <ProfileAvatarBlock profile={profile}
-                                               isOwner={isOwner}  setProfileEditingPhoto={setProfileEditingPhoto}/>
+                                               isOwner={isOwner} setProfileEditingInfoMode={setProfileEditingInfoMode}
+                                               setProfileEditingPhoto={setProfileEditingPhoto}/>
                             <Modal
                                 open={profileEditingPhoto}
                                 onClose={handleClose}>
                                 <MainPhotoEdit handleClose={handleClose} savePhoto={props.savePhoto}/>
                             </Modal>
                             {profileEditingInfoMode ?
-                                  <ProfileEditing setProfileEditingInfoMode={setProfileEditingInfoMode}
+                                <ProfileEditing setProfileEditingInfoMode={setProfileEditingInfoMode}
                                                 profile={profile}/>
-                                : <ProfileInfo profile={profile} setProfileEditingInfoMode={setProfileEditingInfoMode}
+                                : <ProfileInfo profile={profile}
                                                isOwner={isOwner} {...props} />}
                         </>}
-                </>
+                </div>
         }
         </>
     );

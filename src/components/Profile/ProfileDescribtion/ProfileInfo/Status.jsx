@@ -9,7 +9,8 @@ const  Status = ({updateUserStatus, isOwner, ...props})=> {
         setStatus(status)
     }, [status])
    const disableEditMode = () => {
-        updateUserStatus(props.status)
+        debugger
+        updateUserStatus(status)
         setEditMode(false)
     }
    const onStatusUpdate = (e) => {
@@ -25,7 +26,7 @@ const  Status = ({updateUserStatus, isOwner, ...props})=> {
 
         return( <>
 
-            {(!editMode) ? <span onDoubleClick={ isOwner && enableEditMode }>{props.status || 'No status yet.'}</span> :
+            {(!editMode) ? <div onDoubleClick={ isOwner && enableEditMode }>{props.status || 'No status yet.'}</div> :
                 <input autoFocus={true} onBlur={disableEditMode} onChange={onStatusUpdate} defaultValue={props.status }/>}
 
 

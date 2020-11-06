@@ -1,0 +1,122 @@
+/*PROFILE BLOCK */
+.profileWrapper {
+    display: flex;
+}
+
+/*AVATAR BLOCK*/
+.editPhoto__btn {
+    background-color: rgba(191, 191, 191, .3);
+    height: 15%;
+    color: #adadad;
+    border: none;
+    width: 100%;
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    border-bottom-left-radius: 5px ;
+    border-bottom-right-radius: 5px ;
+    padding: 5px;
+
+}
+.editPhoto__btn:focus {
+   display: none;
+}
+
+
+.editPhoto__btn:hover {
+    background-color: rgba(191, 191, 191, .6);
+    color: white;
+    cursor: pointer;
+}
+
+.avatarBlock {
+    width: 25%;
+
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin: 10px;
+    height: 100%;
+
+
+}
+
+.avatar__wrapper {
+    position: relative;
+
+}
+
+.avatar{
+    width: 100%;
+    border-radius: 5px;
+
+
+}
+
+.editInfoBtn{
+    width: 100%;
+    height: 25px;
+    padding: 10px;
+    background-color: #edeef0;
+}
+
+.editInfoBtn:hover {
+    color: white;
+    background-color: #a2adf5;
+
+
+}
+
+
+
+/*INFO BLOCK */
+.profileInfoWrapper {
+    width: 75%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin: 10px;
+
+}
+.socialMediaWrapper {
+    display: flex;
+    align-items: center;
+
+}
+.name {
+    font-weight: 500;
+    font-size: 1.5em;
+    border-bottom: 1px solid #a2adf5;
+    margin-bottom: 5px;
+
+}
+.name .status {
+    font-size: 1rem ;
+}
+
+.jobBlock {
+    border-bottom: 1px solid #a2adf5;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.status:hover {
+    cursor: pointer;
+    background-color: #edeef0;
+}
+.socialLink {
+    color: #a2adf5;
+}
+
+.socialLink:hover {
+    color: #6172f9;
+}
+.socialIcon {
+
+}
+.socialString {
+
+  display: none;
+}
