@@ -42,3 +42,16 @@ margin: 50px
 .submit__button:hover {
     background-color: #6172f9;
 }
+
+.checkBox input {
+    width: 10%;
+
+
+}
+.checkBox {
+
+    display: flex;
+    justify-content: center;
+    width: 120%;
+
+}

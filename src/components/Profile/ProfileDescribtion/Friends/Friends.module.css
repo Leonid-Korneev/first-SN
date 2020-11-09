@@ -1,0 +1,33 @@
+.container  {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: flex-start;
+
+
+
+}
+
+.main__link{
+
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+.main__link:hover {
+  color: #a2adf5;
+  transition: all .4s ease;
+}
+.friendsBlock {
+  display: inline-block;
+  width: 27%;
+  padding: 10px 0;
+  background-color: white;
+  border-radius: 10px;
+  margin: 0 10px 10px 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+}
+
+.title {
+  margin: 5px;
+}

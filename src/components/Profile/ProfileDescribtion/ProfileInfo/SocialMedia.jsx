@@ -40,6 +40,9 @@ export const SocialMedia = ({socialMediaTitle, socialMediaLink}) => {
             component= Icon48LogoVk
             break
         }
+        default : {
+            break
+        }
 
     }
 

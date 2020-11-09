@@ -1,5 +1,5 @@
 import React from 'react';
-import s from "./FriendsSideBarItem.module.css"
+import s from "./FriendsItem.module.css"
 import {NavLink} from "react-router-dom";
 import {Avatar} from "@material-ui/core";
 import {StylesProvider} from "@material-ui/styles";
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const FriendsSideBarItem = (props) => {
+const FriendsItem = (props) => {
 
 
     const classes = useStyles();
@@ -50,4 +50,4 @@ const FriendsSideBarItem = (props) => {
     )
 }
 
-export default FriendsSideBarItem;
+export default FriendsItem;

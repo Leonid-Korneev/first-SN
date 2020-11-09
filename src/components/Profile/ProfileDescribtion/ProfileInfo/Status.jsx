@@ -26,7 +26,7 @@ const  Status = ({updateUserStatus, isOwner, ...props})=> {
 
         return( <>
 
-            {(!editMode) ? <div onDoubleClick={ isOwner && enableEditMode }>{props.status || 'No status yet.'}</div> :
+            {(!editMode) ? <div onDoubleClick={ isOwner ? enableEditMode : undefined }>{props.status || 'No status yet.'}</div> :
                 <input autoFocus={true} onBlur={disableEditMode} onChange={onStatusUpdate} defaultValue={props.status }/>}
 
 

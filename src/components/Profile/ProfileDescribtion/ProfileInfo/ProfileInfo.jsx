@@ -10,7 +10,7 @@ import {stringFirstCharToUpperCase} from "../../../../utils/functions/stringFirs
 export const ProfileInfo = ({profile, isOwner, setProfileEditingInfoMode, ...props}) => {
 
 
-    const contacts = profile ? profile.contacts : null
+    const contacts = profile?.contacts
 
 
     return (profile &&

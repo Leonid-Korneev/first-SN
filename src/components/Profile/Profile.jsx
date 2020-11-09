@@ -1,20 +1,30 @@
 import React from 'react';
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileDescribtionContainer from "./ProfileDescribtion/ProfileDescribtionContainer";
-import {Redirect} from "react-router-dom";
-import {connect} from "react-redux";
+import {withAuthRedirect} from "../hoc/withAuthRedirect";
 
 
-const Profile = ({isAuth}) => {
+
+
+
+
+const Profile = () => {
 
 
     return (
+
+
+
+
         <>
 
-            {!isAuth ? <Redirect to={"/login"}/> : <div>
-                <ProfileDescribtionContainer/>
+            <ProfileDescribtionContainer/>
                 <MyPostsContainer/>
-            </div>}
+
+
+
+
+
 
         </>
 
@@ -22,9 +32,5 @@ const Profile = ({isAuth}) => {
     );
 }
 
-const mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth
-})
 
-
-export default connect(mapStateToProps) (Profile);
+export default   withAuthRedirect(Profile)

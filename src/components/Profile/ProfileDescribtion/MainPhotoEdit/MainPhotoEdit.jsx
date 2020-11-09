@@ -1,18 +1,26 @@
 import React, {useState} from "react";
 import s from "./MainPhotoEdit.module.css"
 import {useForm} from "react-hook-form";
+import {Modal} from "@material-ui/core";
 
 
-export const MainPhotoEdit = ({savePhoto, handleClose}) => {
+export const MainPhotoEdit = ({profileEditingPhoto,savePhoto, setProfileEditingPhoto}) => {
 
 
     const [photoUrl, setPhotoUrl] = useState("")
     const {register, handleSubmit} = useForm();
 
+
+    const handleClose = () => {
+        setProfileEditingPhoto(false)
+    }
+
     const onSubmit = (data) => {
         savePhoto(data.photo)
         handleClose()
     }
+
+
 
     function onChange(event) {
         let file = event.target.files[0];
@@ -23,19 +31,34 @@ export const MainPhotoEdit = ({savePhoto, handleClose}) => {
         reader.readAsDataURL(file)
     }
 
-    return (<div className={s.container}>
+    return (
+
+        <Modal
+            open={profileEditingPhoto}
+            onClose={handleClose}>
 
 
-        {photoUrl ? <div> <img className={s.photo__example} src={photoUrl} alt=""/></div> : null}
+            <div className={s.container}>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
 
-            <div>
+                {photoUrl ? <div> <img className={s.photo__example} src={photoUrl} alt=""/></div> : null}
 
-                <input name="photo" onChange={onChange} ref={register} type="file"/>
-                <button type="submit"> Upload new avatar</button>
+                <form onSubmit={handleSubmit(onSubmit)}>
+
+                    <div>
+
+                        <input name="photo" onChange={onChange} ref={register} type="file"/>
+                        <button type="submit"> Upload new avatar</button>
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>)
+
+
+
+
+        </Modal>
+
+
+     )
 
 }

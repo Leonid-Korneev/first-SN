@@ -65,7 +65,6 @@ const profileReducer = (state = initialState, action) => {
 
 }
 export const getProfile = (userId) => async (dispatch) => {
-
     dispatch(toggleIsFetching(true))
     let response = await profileAPI.getProfile(userId)
     dispatch(toggleIsFetching(false))

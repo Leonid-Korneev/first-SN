@@ -13,13 +13,8 @@ export const ProfileAvatarBlock = ({profile,isOwner,setProfileEditingPhoto,setPr
         setProfileEditingInfoMode(true)
     }
 
-
-
     const handleOpen = () => {
         setProfileEditingPhoto(true)
-    }
-    const handleClose = () => {
-        setProfileEditingPhoto(false)
     }
 
 

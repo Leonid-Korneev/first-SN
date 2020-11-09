@@ -16,10 +16,10 @@ import Preloader from "../common/Preloader/Preloader";
 
 
 const Friends = ({friends, followingUsers, totalFriendsCount, pageSize, currentPage, follow, changePage, getFriends, isFetching,followingInProgress}) => {
-    debugger
+
     useEffect(() => {
         getFriends()
-    }, [])
+    }, [getFriends])
     let pages = Math.ceil(totalFriendsCount / pageSize)
 
     return (

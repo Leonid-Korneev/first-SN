@@ -1,22 +1,24 @@
 
 .item {
-  color: green;
+  color: black;
   display: flex;
-  margin: 10px
-;
+
+  margin: 10px;
+
+  width: 90%;
 
 
 
-  
+
 }
-p {
-  margin-left:10px;
+.postText {
+  border-bottom: #a2adf5 1px solid;
+  width: 100%;
+  margin-left: 10px
 }
 
-.item img {
-  width: 50px;
-  border-radius: 30px;
-}
+
+
 
 .like img {
   width: 40px;
@@ -27,6 +29,10 @@ p {
   margin: 0 15px;
 }
 .wrapper {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -32,27 +32,32 @@ export let LoginForm = (props) => {
 
 
                 <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-                    {props.successfulLog === false ? <div className={cln(s.form__item,s.form__error) }>{props.errorMessages}</div> : undefined}
+                    {props.successfulLog === false ?
+                        <div className={cln(s.form__item, s.form__error)}>{props.errorMessages}</div> : undefined}
                     <div className={s.form__item}>
                         <TextField size="small" inputRef={register({required: true})} name="email" type="text"
                                    placeholder="Email" label="Email" variant="outlined" required/>
 
 
                     </div>
-                    <div className={s.form__item}><TextField  size="small" inputRef={register({required: true})} name="password"
+                    <div className={s.form__item}><TextField size="small" inputRef={register({required: true})}
+                                                             name="password"
                                                              type="password"
                                                              placeholder="password" label="Password" variant="outlined"
                                                              required/></div>
                     {props.captchaUrl &&
                     <div className={s.form__item}>
                         <img src={props.captchaUrl} alt=""/>
-                        <TextField size="small" className={s.form__item} inputRef={register} name="captcha" type="text" placeholder="Code"
+                        <TextField size="small" className={s.form__item} inputRef={register} name="captcha" type="text"
+                                   placeholder="Code"
                                    label="Code" variant="outlined"/></div>}
-                    <div className={s.form__item}><div><input ref={register} name="remember-me" type="checkbox"/><label>Remember
-                        me</label></div></div>
+                    <div className={s.form__item}>
+                        <div className={s.checkBox}><input ref={register} name="remember-me"
+                                                           type="checkbox"/><label>Remember me</label></div>
+                    </div>
                     <div className={s.form__item}>
 
-                        <Button className={s.submit__button} type="submit" variant="contained" >
+                        <Button className={s.submit__button} type="submit" variant="contained">
                             Sign in
                         </Button>
                     </div>

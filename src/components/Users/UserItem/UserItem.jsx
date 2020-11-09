@@ -15,7 +15,7 @@ export const UserItem = ({user,followingUsers, follow })=> {
 
             <div className={style.icon}>
                 <NavLink to={"/profile/" + user.id}>
-                    <img className={style.avatar}
+                    <img  className={style.avatar}
                          src={ user.photos.small ?? avatar}
                          alt="ProfileImage"/>
                 </NavLink>

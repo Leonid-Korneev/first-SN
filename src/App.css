@@ -1,8 +1,8 @@
 
 .app-wrapper__content {
     grid-area: c;
-
     position: relative;
+    padding: 10px;
 
 }
 
