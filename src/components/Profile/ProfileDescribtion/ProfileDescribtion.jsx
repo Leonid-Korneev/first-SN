@@ -42,7 +42,7 @@ const ProfileDescribtion = ({userId, profile, authorizedUserId, ...props}) => {
 
                     </div>
 
-                    {isOwner &&      <Friends />}
+                    {/*{isOwner &&      <Friends />}*/}
                 </>
 
 

@@ -31,13 +31,13 @@
 }
 
 .avatarBlock {
-    width: 25%;
+    width: 30%;
     margin-right: 10px;
     background-color: white;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    height: 200%;
+
 
 
 
@@ -72,54 +72,68 @@
 
 
 /*INFO BLOCK */
-.profileInfoWrapper {
-    width: 70%;
+.profileInfo {
+
     background-color: white;
     border-radius: 10px;
     padding: 10px;
+
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 
 
 
 }
+
+.profileInfoWrapper {
+    display: grid;
+    grid-template-rows: 1fr;
+
+
+    width: 80%;
+
+}
+
+
+
+
 .socialMediaWrapper {
-    display: flex;
-    align-items: center;
+display: flex;
+align-items: center;
 
 }
 .name {
-    font-weight: 500;
-    font-size: 1.5em;
-    border-bottom: 1px solid #a2adf5;
-    margin-bottom: 5px;
+font-weight: 500;
+font-size: 1.5em;
+border-bottom: 1px solid #a2adf5;
+margin-bottom: 5px;
 
 }
 .name .status {
-    font-size: 1rem ;
+font-size: 1rem ;
 }
 
 .jobBlock {
-    border-bottom: 1px solid #a2adf5;
-    margin-bottom: 5px;
-    font-size: 1.1em;
+border-bottom: 1px solid #a2adf5;
+margin-bottom: 5px;
+font-size: 1.1em;
 }
 
 .status:hover {
-    cursor: pointer;
-    background-color: #edeef0;
+cursor: pointer;
+background-color: #edeef0;
 }
 .socialLink {
-    color: #a2adf5;
+color: #a2adf5;
 }
 
 .socialLink:hover {
-    color: #6172f9;
+color: #6172f9;
 }
 .socialIcon {
 
 }
 .socialString {
 
-  display: none;
+display: none;
 }
 
