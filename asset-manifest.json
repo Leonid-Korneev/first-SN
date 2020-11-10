@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/first-SN/static/css/main.d2f06865.chunk.css",
-    "main.js": "/first-SN/static/js/main.b4858cf8.chunk.js",
-    "main.js.map": "/first-SN/static/js/main.b4858cf8.chunk.js.map",
-    "runtime-main.js": "/first-SN/static/js/runtime-main.ea4206ca.js",
-    "runtime-main.js.map": "/first-SN/static/js/runtime-main.ea4206ca.js.map",
-    "static/js/2.9e21af7b.chunk.js": "/first-SN/static/js/2.9e21af7b.chunk.js",
-    "static/js/2.9e21af7b.chunk.js.map": "/first-SN/static/js/2.9e21af7b.chunk.js.map",
+    "main.css": "/first-SN/static/css/main.fc7eb73a.chunk.css",
+    "main.js": "/first-SN/static/js/main.b213f4dd.chunk.js",
+    "main.js.map": "/first-SN/static/js/main.b213f4dd.chunk.js.map",
+    "runtime-main.js": "/first-SN/static/js/runtime-main.b2e28018.js",
+    "runtime-main.js.map": "/first-SN/static/js/runtime-main.b2e28018.js.map",
+    "static/js/2.87734ecd.chunk.js": "/first-SN/static/js/2.87734ecd.chunk.js",
+    "static/js/2.87734ecd.chunk.js.map": "/first-SN/static/js/2.87734ecd.chunk.js.map",
     "static/css/3.59318d40.chunk.css": "/first-SN/static/css/3.59318d40.chunk.css",
-    "static/js/3.10854a52.chunk.js": "/first-SN/static/js/3.10854a52.chunk.js",
-    "static/js/3.10854a52.chunk.js.map": "/first-SN/static/js/3.10854a52.chunk.js.map",
+    "static/js/3.55952f68.chunk.js": "/first-SN/static/js/3.55952f68.chunk.js",
+    "static/js/3.55952f68.chunk.js.map": "/first-SN/static/js/3.55952f68.chunk.js.map",
     "index.html": "/first-SN/index.html",
-    "precache-manifest.f1f5c36b375d78f2913b828e924936ea.js": "/first-SN/precache-manifest.f1f5c36b375d78f2913b828e924936ea.js",
+    "precache-manifest.c86fadd671056f7bb2ef6d82269ee1f3.js": "/first-SN/precache-manifest.c86fadd671056f7bb2ef6d82269ee1f3.js",
     "service-worker.js": "/first-SN/service-worker.js",
     "static/css/3.59318d40.chunk.css.map": "/first-SN/static/css/3.59318d40.chunk.css.map",
-    "static/css/main.d2f06865.chunk.css.map": "/first-SN/static/css/main.d2f06865.chunk.css.map",
-    "static/js/2.9e21af7b.chunk.js.LICENSE.txt": "/first-SN/static/js/2.9e21af7b.chunk.js.LICENSE.txt",
+    "static/css/main.fc7eb73a.chunk.css.map": "/first-SN/static/css/main.fc7eb73a.chunk.css.map",
+    "static/js/2.87734ecd.chunk.js.LICENSE.txt": "/first-SN/static/js/2.87734ecd.chunk.js.LICENSE.txt",
     "static/media/default-avtar.jpg": "/first-SN/static/media/default-avtar.302be374.jpg",
     "static/media/like.png": "/first-SN/static/media/like.a61312b3.png",
     "static/media/logo.png": "/first-SN/static/media/logo.94c4632d.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.ea4206ca.js",
-    "static/js/2.9e21af7b.chunk.js",
-    "static/css/main.d2f06865.chunk.css",
-    "static/js/main.b4858cf8.chunk.js"
+    "static/js/runtime-main.b2e28018.js",
+    "static/js/2.87734ecd.chunk.js",
+    "static/css/main.fc7eb73a.chunk.css",
+    "static/js/main.b213f4dd.chunk.js"
   ]
 }
