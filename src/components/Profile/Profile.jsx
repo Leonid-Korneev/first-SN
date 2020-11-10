@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileDescribtionContainer from "./ProfileDescribtion/ProfileDescribtionContainer";
 import {withAuthRedirect} from "../hoc/withAuthRedirect";
