@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/first-SN/static/css/main.fc7eb73a.chunk.css",
-    "main.js": "/first-SN/static/js/main.b213f4dd.chunk.js",
-    "main.js.map": "/first-SN/static/js/main.b213f4dd.chunk.js.map",
+    "main.css": "/first-SN/static/css/main.f69d56bb.chunk.css",
+    "main.js": "/first-SN/static/js/main.66e99e53.chunk.js",
+    "main.js.map": "/first-SN/static/js/main.66e99e53.chunk.js.map",
     "runtime-main.js": "/first-SN/static/js/runtime-main.b2e28018.js",
     "runtime-main.js.map": "/first-SN/static/js/runtime-main.b2e28018.js.map",
-    "static/js/2.87734ecd.chunk.js": "/first-SN/static/js/2.87734ecd.chunk.js",
-    "static/js/2.87734ecd.chunk.js.map": "/first-SN/static/js/2.87734ecd.chunk.js.map",
+    "static/js/2.9e9afb44.chunk.js": "/first-SN/static/js/2.9e9afb44.chunk.js",
+    "static/js/2.9e9afb44.chunk.js.map": "/first-SN/static/js/2.9e9afb44.chunk.js.map",
     "static/css/3.59318d40.chunk.css": "/first-SN/static/css/3.59318d40.chunk.css",
     "static/js/3.55952f68.chunk.js": "/first-SN/static/js/3.55952f68.chunk.js",
     "static/js/3.55952f68.chunk.js.map": "/first-SN/static/js/3.55952f68.chunk.js.map",
     "index.html": "/first-SN/index.html",
-    "precache-manifest.c86fadd671056f7bb2ef6d82269ee1f3.js": "/first-SN/precache-manifest.c86fadd671056f7bb2ef6d82269ee1f3.js",
+    "precache-manifest.ddfbcda504d7ab60845681617b3df6a9.js": "/first-SN/precache-manifest.ddfbcda504d7ab60845681617b3df6a9.js",
     "service-worker.js": "/first-SN/service-worker.js",
     "static/css/3.59318d40.chunk.css.map": "/first-SN/static/css/3.59318d40.chunk.css.map",
-    "static/css/main.fc7eb73a.chunk.css.map": "/first-SN/static/css/main.fc7eb73a.chunk.css.map",
-    "static/js/2.87734ecd.chunk.js.LICENSE.txt": "/first-SN/static/js/2.87734ecd.chunk.js.LICENSE.txt",
+    "static/css/main.f69d56bb.chunk.css.map": "/first-SN/static/css/main.f69d56bb.chunk.css.map",
+    "static/js/2.9e9afb44.chunk.js.LICENSE.txt": "/first-SN/static/js/2.9e9afb44.chunk.js.LICENSE.txt",
     "static/media/default-avtar.jpg": "/first-SN/static/media/default-avtar.302be374.jpg",
     "static/media/like.png": "/first-SN/static/media/like.a61312b3.png",
     "static/media/logo.png": "/first-SN/static/media/logo.94c4632d.png"
   },
   "entrypoints": [
     "static/js/runtime-main.b2e28018.js",
-    "static/js/2.87734ecd.chunk.js",
-    "static/css/main.fc7eb73a.chunk.css",
-    "static/js/main.b213f4dd.chunk.js"
+    "static/js/2.9e9afb44.chunk.js",
+    "static/css/main.f69d56bb.chunk.css",
+    "static/js/main.66e99e53.chunk.js"
   ]
 }
