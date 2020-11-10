@@ -20,20 +20,20 @@ const Users = ({totalUsersCount,pageSize,that,users,followingUsers,follow,curren
 
 
     return (
-        <div className={style.users__content}>
+        <div className={style.usersWrapper}>
             <UsersSearchForm that={that} />
-
+            <div className={style.usersBlock}>
             {users.map((user) =>
                 <UserItem key={user.id} user={user} followingUsers={followingUsers} follow={follow}/>
             )}
+            </div>
 
-           <Pagination className={style.pag} count={pages} page={currentPage} onChange={(e, page) => {
 
-                    onShowMoreClicked(page)
+            <Pagination className={style.pagination} count={pages} page={currentPage} onChange={(e, page) => {
 
-            }}/>
-
+                onShowMoreClicked(page)  }}/>
         </div>
+
     )
 }
 

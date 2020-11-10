@@ -14,9 +14,9 @@ const UsersSearchForm = ({getFilteredUsers, currentPage, that}) => {
 
     return (
         <div className={s.search__wrapper}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form  className={s.searchBlock} onSubmit={handleSubmit(onSubmit)}>
                 <input className={s.search__field} name="searchField" placeholder="Enter user name..." ref={register}/>
-                <button type="submit">Find</button>
+                <button className={s.submitBtn} type="submit">Find</button>
             </form>
         </div>)
 }

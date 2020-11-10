@@ -8,22 +8,21 @@ import Preloader from "../../common/Preloader/Preloader";
 import {getSideBarFriends} from "../../../redux/friends-reducer";
 
 
-
-
-const ProfileDescribtionContainer = ({getSideBarFriends,getProfile,getUserStatus,authorizedUserId,isFetching,...props})=> {
+const ProfileDescribtionContainer = ({getSideBarFriends, getProfile, getUserStatus, authorizedUserId, isFetching, ...props}) => {
 
     let userId = (props.match.params.userId)
-    userId =  userId ?? authorizedUserId ?? 2
-    useEffect(()=>{
+    userId = userId ?? authorizedUserId ?? 2
+    useEffect(() => {
 
-      getSideBarFriends()
-      getProfile(userId)
-      getUserStatus(userId)
+        getSideBarFriends()
+        getProfile(userId)
+        getUserStatus(userId)
 
-    }, [userId, getSideBarFriends , getProfile, getUserStatus ])
+    }, [userId, getSideBarFriends, getProfile, getUserStatus])
 
 
-  return (isFetching) ? <Preloader/>  : <ProfileDescribtion {...props} authorizedUserId={authorizedUserId} savePhoto={props.savePhoto}  userId={userId} />
+    return (isFetching) ? <Preloader/> :
+        <ProfileDescribtion {...props} authorizedUserId={authorizedUserId} savePhoto={props.savePhoto} userId={userId}/>
 
 
 }
@@ -34,11 +33,11 @@ let mapStateToProps = (state) => {
 
     return {
         profile: state.profile.profile,
-        isFetching : state.profile.isFetching,
+        isFetching: state.profile.isFetching,
 
         status: state.profile.status,
         isAuth: state.auth.isAuth,
-        authorizedUserId : state.auth.id
+        authorizedUserId: state.auth.id
     }
 
 }

@@ -24,11 +24,22 @@ const Friends = ({friends, followingUsers, totalFriendsCount, pageSize, currentP
 
     return (
         <>
-            {isFetching ? <Preloader/> : <> {friends.map((friend) => (
-                <FriendsItem key={friend.id} friend={friend} followingUsers={followingUsers} followingInProgress={followingInProgress} follow={follow}/>))}
-                <Pagination className={style.pag} count={pages} page={currentPage} onChange={(e, page) => {
+            {isFetching ? <Preloader/> :
+
+                <div className={style.usersWrapper}>
+
+
+                    <div className={style.usersBlock}>
+
+                    {friends.map((friend) => (
+                  <FriendsItem key={friend.id} friend={friend} followingUsers={followingUsers} followingInProgress={followingInProgress} follow={follow}/>
+             ))}
+                    </div>
+
+
+                <Pagination className={style.pagination} count={pages} page={currentPage} onChange={(e, page) => {
                     changePage(page)
-                }}/></>}
+                }}/></div>}
         </>
     )
 }

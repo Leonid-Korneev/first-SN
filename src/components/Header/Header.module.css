@@ -1,56 +1,55 @@
 .header {
     grid-area: h;
-    background-color: rgba(0, 26, 255, 0.3);
-    border-radius: 5px;
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(2, 1fr);
 
 
+    height: 100%;
+    background-color: #a2adf5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 
 
 
 }
-
 
 .header__logo {
-    max-width: 50px;
-    max-height: 50px;
-    width: 100%;
     height: 100%;
-    margin-left: 15px;
+}
+
+.profileButton {
+    color: black;
+    border-radius: 3px;
+    background-color: #d0d7f2;
+    padding: 5px;
 
 }
 
-.loggedIn_block {
-  align-self: center;
-  justify-self: end;
-  margin-right: 10px;
+.profileButton:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #6172f9;
+    transition: color,background-color 0.5s linear;
+
 
 }
 
-.logIn_link {
-    align-self: center;
-    justify-self: end;
+.logInLinkBlock a {
     text-decoration: none;
     color: black;
 }
-
-.logIn_link_block {
-    background-color: #d0d7f2;
+.logInLinkBlock {
     border-radius: 5px;
-    align-self: center;
-    margin-right: 10px;
-    justify-self: end;
+    background-color: #d0d7f2;
     padding: 5px;
 }
+.logInLinkBlock:hover  {
 
-.logIn_link_block:hover {
     background-color: #6172f9;
-
+    transition: all .5s linear;
 }
-
-.logIn_link_block:hover a {
+.logInLinkBlock:hover a {
     color: white;
-    transition: all 0.3s linear;
 }

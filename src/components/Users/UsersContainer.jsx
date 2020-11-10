@@ -7,7 +7,7 @@ import {
     getDefaultUsers, getNewUsers,
     setPage,
     showMoreUsers,
-    toggleFollow, toggleFollowing
+    toggleFollow, toggleFollowing, setCurrentFilter
 } from "../../redux/users-reducer";
 
 
@@ -26,6 +26,8 @@ class UsersAPIComponent extends React.Component {
 
     componentDidMount() {
         this.props.getDefaultUsers(this)
+        this.props.setCurrentFilter("")
+        this.props.setPage(1)
     }
 
     onPageChanged(pageNumber) {
@@ -79,6 +81,7 @@ let mapStateToProps = (state) => {
         followingUsers: getFollowingUsers(state),
         isFollowingInProgress: getIsFollowingInProgress(state),
         currentFilter: getCurrentFilter(state)
+
     })
 }
 
@@ -91,7 +94,8 @@ let mapDispatchToProps = {
     toggleFollowing,
     getDefaultUsers,
     getNewUsers,
-    follow
+    follow,
+    setCurrentFilter
 
 }
 

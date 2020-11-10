@@ -1,0 +1,49 @@
+.avatar {
+    width: 100%;
+    border-radius: 50%;
+    border: black 1px solid;
+
+}
+
+.avatar:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+
+}
+.user {
+
+    background-color: white;
+    justify-self: center;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 10px 20px;
+    margin: 5px;
+    width: 60%;
+
+}
+
+
+
+.followBtn {
+    border-radius: 3px;
+    font-size: 1.1em;
+    padding: 5px 20px;
+    border: none;
+    background-color: #a2adf5;
+    color: white;
+    transition: all .3s linear;
+}
+.followBtn:hover {
+    cursor: pointer;
+    background-color: #6172f9;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.name {
+    margin: 10px 0 10px -7px;
+}
+
+.followBtn:disabled {
+    background-color: grey;
+}

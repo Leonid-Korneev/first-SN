@@ -28,7 +28,7 @@ export const ProfileAvatarBlock = ({profile,isOwner,setProfileEditingPhoto,setPr
         { isOwner && editAvatarMode && <button className={s.editPhoto__btn}   onClick={handleOpen}>Change Avatar</button> }
             </div>
             {isOwner && <div>
-                <Button variant="outlined"  className={s.editInfoBtn} onClick={onEditClick}>edit info</Button>
+                <Button className={s.editInfoBtn} variant="outlined"   onClick={onEditClick}>edit info</Button>
             </div> }
         </div>
 

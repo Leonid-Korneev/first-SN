@@ -1,14 +1,35 @@
-.form {
+.form{
+ display: flex;
+    justify-content: space-around;
+}
 
+.formWrapper {
+    padding: 10px;
+    border-radius: 5px;
     background-color: white;
-    padding: 10px 10px 10px 17px;
-
-    border-radius: 10px;
-
-
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
 
+.form textarea {
 
+    font-size: 1.2rem;
+    border-radius: 5px;
+    resize: none;
+    border: 1px solid #a2adf5;
+    width: 90%;
+    padding: 5px 0 0 5px
 
+}
+.form button {
+    font-size: 1.1rem;
+    background-color: #a2adf5;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: all 0.3s linear;
+}
 
+.form button:hover {
+    background-color: #6172f9;
+    cursor: pointer;
 }

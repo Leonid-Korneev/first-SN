@@ -10,23 +10,23 @@ const NavBar = () => {
         <nav className={s.nav}>
 
 
-            <div>
-                <NavLink to="/profile/" activeClassName={s.active} className={s.item}>Profile</NavLink>
+            <div className={s.linkBlock}>
+                <NavLink to="/profile/" activeClassName={s.active} className={s.link}>Profile</NavLink>
             </div>
-            <div>
-                <NavLink to="/users" activeClassName={s.active} className={s.item}>Users</NavLink>
+            <div className={s.linkBlock}>
+                <NavLink to="/users" activeClassName={s.active} className={s.link}>Users</NavLink>
             </div>
-            <div>
-                <NavLink to="/dialogs" activeClassName={s.active} className={s.item}>Messages</NavLink>
+            <div className={s.linkBlock}>
+                <NavLink to="/dialogs" activeClassName={s.active} className={s.link}>Messages</NavLink>
             </div>
-            <div>
-                <NavLink to="/news" activeClassName={s.active} className={s.item}>News</NavLink>
+            <div className={s.linkBlock}>
+                <NavLink to="/news" activeClassName={s.active} className={s.link}>News</NavLink>
             </div>
-            <div>
-                <NavLink to="/music" activeClassName={s.active} className={s.item}>Music</NavLink>
+            <div className={s.linkBlock}>
+                <NavLink to="/music" activeClassName={s.active} className={s.link}>Music</NavLink>
             </div>
-            <div>
-                <NavLink to="/settings" activeClassName={s.active} className={s.item}>Settings</NavLink>
+            <div className={s.linkBlock}>
+                <NavLink to="/settings" activeClassName={s.active} className={s.link}>Settings</NavLink>
             </div>
 
 

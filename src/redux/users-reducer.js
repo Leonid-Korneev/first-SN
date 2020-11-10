@@ -14,7 +14,7 @@ let initialState = {
     users: [],
     currentPage: 1,
     totalUsersCount: 0,
-    pageSize: 10,
+    pageSize: 12,
     isFetching: false,
     isFollowingInProgress: false,
     followingUsers: [],
@@ -64,6 +64,7 @@ export const getFilteredUsers = (searchInfo, currentPage, context) => async (dis
     dispatch(setUsers(response.data.items))
     dispatch(toggleIsFetching(false))
     dispatch(setTotalUsersCount(response.data.totalCount))
+
 
 }
 

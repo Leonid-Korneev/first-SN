@@ -1,7 +1,7 @@
 import React, {lazy, Suspense} from 'react';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import { HashRouter, Route} from "react-router-dom";
+import {HashRouter, Redirect, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
@@ -43,6 +43,7 @@ class App extends React.Component {
                             <NavBar/>
                             <div className="app-wrapper__content">
                                 <Route path="/profile/:userId?" render={() => <Profile/>}/>
+                                <Route path="/*" render={() => <Redirect to={"/profile"}  />}/>
                                 <Route path="/users" render={() => <UsersContainer/>}/>
                                 <Suspense fallback={<Preloader/>}>
                                 <Route path="/dialogs/:userId?" render={() => <DialogsContainer/>}/>

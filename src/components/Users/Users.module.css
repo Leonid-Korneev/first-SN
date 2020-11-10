@@ -1,69 +1,17 @@
-.user {
-    display: flex;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 20px;
+.usersBlock {
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    grid-gap: 10px;
     padding: 10px;
-    width: 95%;
-}
-.icon {
-    display: flex;
-    flex-direction: column;
+
 
 }
 
-.users__content {
+.usersWrapper{
     display: grid;
-    justify-items: center;
+    margin-bottom: 10px;
 }
 
-.avatar {
-    width: 100px;
-    border-radius: 100%;
-}
-.avatar:hover {
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    cursor: pointer;
-}
-.item {
-
-}
-.pag {
-    margin-bottom: 20px;
-}
-
-
-.content {
-    margin: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
-}
-.content *{
-    align-self: center;
-}
-
- .city,.country {
-    justify-self: end;
-}
-
-.status {
-    align-self: end;
-}
-.selected {
-    font-weight: 700;
-    color: green
-}
-
-.showMore:hover {
-    background-color: rgba(0, 26, 255, 0.1);
-    color: black;
-    cursor: pointer;
-}
-.showMore {
-    margin-bottom: 20px;
-}
-.pages{
-    display: flex;
-    flex-wrap: wrap;
+.pagination {
+    justify-self: center;
 }
