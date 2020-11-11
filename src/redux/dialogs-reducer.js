@@ -95,7 +95,6 @@ const dialogsReducer = (state = initialState, action) => {
 }
 
 
-
 export const addMessage = (newMessageText) => ({type: ADD_MESSAGE, newMessageText})
 
 export default dialogsReducer

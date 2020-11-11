@@ -4,4 +4,5 @@ export const getCurrentPage = (state) => state.friends.currentPage
 export const getFriendsTotalCount = (state) => state.friends.totalFriendsCount
 export const getIsFetching = (state) => state.friends.isFetching
 export const getFollowingInProgress = (state) => state.friends.followingInProgress
+export const getDisabledList = (state) => state.friends.disabledList
 

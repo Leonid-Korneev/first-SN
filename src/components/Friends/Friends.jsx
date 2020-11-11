@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import {
-    getCurrentPage, getFollowingInProgress,
+    getCurrentPage, getDisabledList, getFollowingInProgress,
     getFriendsSelector,
     getFriendsTotalCount, getIsFetching,
     getPageSize
@@ -15,7 +15,7 @@ import {changePage, follow, getFriends} from "../../redux/friends-reducer";
 import Preloader from "../common/Preloader/Preloader";
 
 
-const Friends = ({friends, followingUsers, totalFriendsCount, pageSize, currentPage, follow, changePage, getFriends, isFetching,followingInProgress}) => {
+const Friends = ({friends, followingUsers, totalFriendsCount, pageSize, currentPage, follow, changePage, getFriends, isFetching, followingInProgress, disabledList}) => {
 
     useEffect(() => {
         getFriends()
@@ -31,15 +31,17 @@ const Friends = ({friends, followingUsers, totalFriendsCount, pageSize, currentP
 
                     <div className={style.usersBlock}>
 
-                    {friends.map((friend) => (
-                  <FriendsItem key={friend.id} friend={friend} followingUsers={followingUsers} followingInProgress={followingInProgress} follow={follow}/>
-             ))}
+                        {friends.map((friend) => (
+                            <FriendsItem key={friend.id} friend={friend} disabledList={disabledList}
+                                         followingUsers={followingUsers} followingInProgress={followingInProgress}
+                                         follow={follow}/>
+                        ))}
                     </div>
 
 
-                <Pagination className={style.pagination} count={pages} page={currentPage} onChange={(e, page) => {
-                    changePage(page)
-                }}/></div>}
+                    <Pagination className={style.pagination} count={pages} page={currentPage} onChange={(e, page) => {
+                        changePage(page)
+                    }}/></div>}
         </>
     )
 }
@@ -51,7 +53,8 @@ const mapStateToProps = (state) => ({
     currentPage: getCurrentPage(state),
     followingUsers: getFollowingUsers(state),
     isFetching: getIsFetching(state),
-    followingInProgress : getFollowingInProgress(state)
+    followingInProgress: getFollowingInProgress(state),
+    disabledList: getDisabledList(state)
 
 })
 

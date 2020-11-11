@@ -30,7 +30,8 @@ export const setPage = (currentPage) => ({type: SET_PAGE, currentPage})
 export const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, count})
 export const showMoreUsers = (currentPage) => ({type: SHOW_MORE_USERS, currentPage})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
-export const toggleFollowing = (isFollowingInProgress, userId) => ({type: TOGGLE_IS_FOLLOWING,
+export const toggleFollowing = (isFollowingInProgress, userId) => ({
+    type: TOGGLE_IS_FOLLOWING,
     isFollowingInProgress,
     userId
 })
@@ -69,8 +70,6 @@ export const getFilteredUsers = (searchInfo, currentPage, context) => async (dis
 }
 
 
-
-
 export const follow = (userId, isFolowed) => {
 
 
@@ -81,8 +80,7 @@ export const follow = (userId, isFolowed) => {
                 dispatch(toggleFollowing(false, userId))
                 if (response.data.resultCode === 0) {
                     dispatch(toggleFollow(userId))
-                    // dispatch(getFriends())
-                    // dispatch(getSideBarFriends())
+
                 }
 
             })
@@ -90,8 +88,7 @@ export const follow = (userId, isFolowed) => {
                 dispatch(toggleFollowing(false, userId))
                 if (response.data.resultCode === 0) {
                     dispatch(toggleFollow(userId))
-                    // dispatch(getFriends())
-                    // dispatch(getSideBarFriends())
+
                 }
 
             })

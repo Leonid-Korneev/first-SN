@@ -1,11 +1,7 @@
-import React, {useEffect} from 'react';
+import React  from 'react';
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileDescribtionContainer from "./ProfileDescribtion/ProfileDescribtionContainer";
 import {withAuthRedirect} from "../hoc/withAuthRedirect";
-
-
-
-
 
 
 const Profile = () => {
@@ -14,18 +10,9 @@ const Profile = () => {
     return (
 
 
-
-
         <>
-
             <ProfileDescribtionContainer/>
-                <MyPostsContainer/>
-
-
-
-
-
-
+            <MyPostsContainer/>
         </>
 
 
@@ -33,4 +20,4 @@ const Profile = () => {
 }
 
 
-export default   withAuthRedirect(Profile)
+export default withAuthRedirect(Profile)

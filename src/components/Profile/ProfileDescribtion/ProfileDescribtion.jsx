@@ -5,7 +5,7 @@ import {MainPhotoEdit} from "./MainPhotoEdit/MainPhotoEdit";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {ProfileAvatarBlock} from "./ProfileInfo/ProfileAvatarBlock";
 import ProfileEditing from "./ProfileEditing/ProfileEditing";
-import Friends from "./Friends/Friends";
+
 
 
 const ProfileDescribtion = ({userId, profile, authorizedUserId, ...props}) => {

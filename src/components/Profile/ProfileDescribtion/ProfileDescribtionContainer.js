@@ -15,22 +15,18 @@ import Preloader from "../../common/Preloader/Preloader";
 import {getSideBarFriends} from "../../../redux/friends-reducer";
 
 
-const ProfileDescribtionContainer = ({getSideBarFriends, getProfile, getUserStatus, authorizedUserId, isFetching, toggleIsFetching, setProfile,...props}) => {
+const ProfileDescribtionContainer = ({getSideBarFriends, getProfile, getUserStatus, authorizedUserId, isFetching, toggleIsFetching, setProfile, ...props}) => {
 
     let userId = (props.match.params.userId)
     userId = userId ?? authorizedUserId
     useEffect(() => {
-
         getSideBarFriends()
         getProfile(userId)
         getUserStatus(userId)
-
-        return ()=> {
-
+        return () => {
             setProfile(null)
         }
-
-    }, [userId, getSideBarFriends, getProfile, getUserStatus])
+    }, [userId, getSideBarFriends, getProfile, getUserStatus,setProfile])
 
 
     return (isFetching) ? <Preloader/> :
@@ -46,7 +42,6 @@ let mapStateToProps = (state) => {
     return {
         profile: state.profile.profile,
         isFetching: state.profile.isFetching,
-
         status: state.profile.status,
         isAuth: state.auth.isAuth,
         authorizedUserId: state.auth.id

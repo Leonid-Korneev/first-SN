@@ -27,7 +27,7 @@ const authReducer = (state = initialState, action) => {
             return {...state, ...action.data}
         }
         case SET_SUCCESSFUL_LOG : {
-            return {...state, successfulLog: true }
+            return {...state, successfulLog: true}
         }
         case SET_ERROR_DATA: {
             return {...state, successfulLog: false, errorMessages: [...action.errorMessages]}
@@ -48,7 +48,7 @@ const authReducer = (state = initialState, action) => {
 
 export const setErrorData = (errorMessages) => ({type: SET_ERROR_DATA, errorMessages})
 export const setUserData = (id, login, email, isAuth) => ({type: SET_USER_DATA, data: {id, login, email, isAuth}})
-export const setSuccesfullLog = ()=> ({type: SET_SUCCESSFUL_LOG })
+export const setSuccesfullLog = () => ({type: SET_SUCCESSFUL_LOG})
 export const setCaptchaUrl = (captchaUrl) => ({type: SET_CAPTCHA_URL, captchaUrl})
 export const getCaptcha = () => async (dispatch) => {
 
