@@ -7,9 +7,6 @@ import UsersSearchForm from "./UsersSearchForm/UsersSearchForm";
 
 
 const Users = ({totalUsersCount,pageSize,that,users,followingUsers,follow,currentPage,onShowMoreClicked,onPageChanged}) => {
-
-
-
     let pages = Math.ceil(totalUsersCount / pageSize)
     let pagesButton = []
     for (let i = 1; i <= pages; i++) {
@@ -27,10 +24,7 @@ const Users = ({totalUsersCount,pageSize,that,users,followingUsers,follow,curren
                 <UserItem key={user.id} user={user} followingUsers={followingUsers} follow={follow}/>
             )}
             </div>
-
-
             <Pagination className={style.pagination} count={pages} page={currentPage} onChange={(e, page) => {
-
                 onShowMoreClicked(page)  }}/>
         </div>
 

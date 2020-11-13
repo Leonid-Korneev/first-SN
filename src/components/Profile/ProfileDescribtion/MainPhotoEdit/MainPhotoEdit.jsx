@@ -42,15 +42,16 @@ export const MainPhotoEdit = ({profileEditingPhoto,savePhoto, setProfileEditingP
 
 
                 {photoUrl ? <div> <img className={s.photo__example} src={photoUrl} alt=""/></div> : null}
-
+                <div className={s.inputBlock}>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                    <div>
+
 
                         <input name="photo" onChange={onChange} ref={register} type="file"/>
                         <button type="submit"> Upload new avatar</button>
-                    </div>
+
                 </form>
+                </div>
             </div>
 
 
